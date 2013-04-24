@@ -1,0 +1,108 @@
+/*  Mark Farias
+	Richard Kim
+	IT 207
+	Project
+	Description: Style sheet for the group project.
+*/
+body {
+	background-color: gainsboro;
+	color: black;
+	font-family: sans-serif;
+	height: 100%;
+}
+
+table {
+	border: none;
+	/*width: 100%;*/
+}
+
+.button {
+	width: 75px;
+}
+
+.center {
+	margin-left: auto; margin-right: auto;
+}
+
+.column_155 {
+	width: 155px;
+}
+
+.column_label {
+	width: 100px;
+}
+
+.column_field {
+	width: 200px;
+}
+
+.header_link {
+	padding-left: 15px;
+	text-decoration: none;
+}
+
+.text_bold {
+	font-weight: bold;
+}
+
+.text_center {
+	text-align: center;
+}
+
+#content {
+	width: 1000px;
+	margin-left: auto; margin-right: auto;
+}
+
+#menu {
+	background-color: slategray;
+	margin-left: auto; margin-right: auto;
+	width: 1000px;
+	text-align: center;
+}
+
+#header {
+	margin-left: auto; margin-right: auto;
+	width: 1000px;
+	text-align: right;
+}
+
+/* CSS for Horizontal Menu */
+#menu ul {
+	background-color: slategray;
+	/*border-bottom: 1px solid #000000; border-top: 1px solid #000000;*/
+	display: inline-block;
+	font-size: 12px; font-weight: bold;
+	height: 30px; width: auto;
+	list-style-type: none;
+	margin:0; padding:0;
+	position: relative;
+	text-align: center;
+}
+
+#menu li {
+	display: block; float: left;
+	margin: 0; padding: 0;
+}
+	
+#menu li a {
+	display: block; float: left;
+	font-weight: bold;
+	color: white;
+	text-decoration: none;
+	padding: 8px 20px 0 20px;
+}
+	
+#menu li a:hover {	
+	background-color: white;
+	border-bottom: 4px solid orange;
+	color: black;
+	height: 22px;
+}
+
+#menu li.active a {
+	background-color: white;
+	border-bottom: 4px solid orange;
+	color: black;
+	height: 22px;
+}
