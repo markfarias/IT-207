@@ -1,9 +1,3 @@
-<!--Mark Farias
-	Richard Kim
-	IT 207
-	Project
-	Description: 
--->		
 <?php
 	include 'templates/header.php';
 ?>
@@ -36,6 +30,7 @@
 			<div class="column_155 center">	
 				<input class="button" type="submit" value="Submit" />
 				<input class="button" type="reset" value="Clear" />
+				<input type="hidden" name="registration" value="Yes" />
 			</div>
 		</div>
 	</form>
