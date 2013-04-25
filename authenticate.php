@@ -4,7 +4,6 @@
 	define("PARAM_EMAIL", "email");
 	define("PARAM_FIRSTNAME", "firstname");
 	define("PARAM_LASTNAME", "lastname");
-	define("PARAM_PASSWORD", "password");
 	define("PARAM_REGISTRATION", "registration");
 	
 	//$connection = @mysqli_connect("helios.ite.gmu.edu", "user", "password", "mfarias");
@@ -25,6 +24,20 @@
 		mysqli_close($connection);
 	}
 	else {
+		if (!empty($_POST[PARAM_PASSWORD]) && !empty($_POST[PARAM_USERNAME])) {
+			$result = mysqli_query($connection, 'SELECT * FROM users WHERE Userid="'.$_POST[PARAM_USERNAME].'" AND Password="'.$_POST[PARAM_PASSWORD].'"');
+			
+			if (mysqli_num_rows($result) == 1) {
+				echo "Log-in successful.".PHP_EOL;
+			}
+			else {
+				echo "Log-in failed.".PHP_EOL;
+			}
+		}
+		else {
+			echo "You must enter a value in each field. Click your browser's Back button to return to the form.".PHP_EOL;
+		}
+		
 		mysqli_close($connection);
 	}
 	

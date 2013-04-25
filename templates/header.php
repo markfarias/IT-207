@@ -15,6 +15,7 @@
 		<div id="header">
 			<?php
 				define("PARAM_GENRE", "genre");
+				define("PARAM_PASSWORD", "password");
 				define("PARAM_USERNAME", "username");
 				
 				if (empty($_POST[PARAM_USERNAME])) {
