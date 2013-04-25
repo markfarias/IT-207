@@ -33,6 +33,11 @@ table {
 	height: 100%; width: 200px;
 }
 
+.column_600 {
+	float: left;
+	height: 100%; width: 600px;
+}
+
 .column_800 {
 	float: left;
 	heigh: 100%; width: 800px;
