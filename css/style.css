@@ -28,6 +28,16 @@ table {
 	width: 155px;
 }
 
+.column_200 {
+	float: left;
+	height: 100%; width: 200px;
+}
+
+.column_800 {
+	float: left;
+	heigh: 100%; width: 800px;
+}
+
 .column_label {
 	width: 100px;
 }
@@ -41,7 +51,13 @@ table {
 	text-decoration: none;
 }
 
-.text_bold {
+.list_element {
+	margin-top: 20px;
+	height: 150px; width: 1000px;	
+}
+
+.movie_title {
+	font-size: 32px;
 	font-weight: bold;
 }
 
