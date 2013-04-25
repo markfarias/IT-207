@@ -18,6 +18,22 @@
 				define("PARAM_PASSWORD", "password");
 				define("PARAM_USERNAME", "username");
 				
+				// Database field constants
+				define("CATEGORIES_NAME", 1);
+				define("MOVIERATINGS_NAME", 1);
+				define("MOVIES_ID", 0);
+				define("MOVIES_TITLE", 1);
+				define("MOVIES_COMPANY", 2);
+				define("MOVIES_YEAR", 3);
+				define("MOVIES_DESC", 4);
+				define("MOVIES_RATING", 5);
+				define("MOVIES_PRICE", 6);
+				define("MOVIES_SHIPPING", 7);
+				define("RELEASECOMPANIES_NAME", 1);
+				define("REVIEWS_DATE", 2);
+				define("REVIEWS_SCORE", 3);
+				define("REVIEWS_COMMENTS", 4);
+				
 				if (empty($_POST[PARAM_USERNAME])) {
 					echo '<a class="header_link" href="login.php">Log-In</a>'.PHP_EOL;
 					echo "\t\t\t", '<a class="header_link" href="register.php">Register</a>'.PHP_EOL;
@@ -34,7 +50,7 @@
 		<div id="menu">
 			<ul>
 				<?php					
-					$genres = array("Action", "Adventure", "Comedy", "Documentary", "Horror", "Romance", "Sci-Fi", "Thriller");
+					$genres = array("Action", "Adventure", "Comedy", "Documentary", "Romance", "Sci-Fi", "Thriller");
 					
 					if (empty($_GET[PARAM_GENRE])) {
 						echo '<li class="active"><a href="index.php">All</a></li>'.PHP_EOL;

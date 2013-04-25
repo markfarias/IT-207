@@ -1,20 +1,15 @@
 <?php
 	include 'templates/header.php';
 	
-	// Database field constants
-	define("CATEGORIES_NAME", 1);
-	define("MOVIERATINGS_NAME", 1);
-	define("MOVIES_ID", 0);
-	define("MOVIES_TITLE", 1);
-	define("MOVIES_COMPANY", 2);
-	define("MOVIES_YEAR", 3);
-	define("MOVIES_DESC", 4);
-	define("MOVIES_RATING", 5);
-	
 	define("HREF_VIEWMOVIE", 'view_movie.php&#63;MovieId&#61;%d'); 
 	
 	//$connection = @mysqli_connect("helios.ite.gmu.edu", "user", "password", "mfarias");
 	$connection = mysqli_connect("localhost", "rkime", "Ad7Mm12345!#", "mfarias");
+	
+	// TODO: Update after modifications to the database to enable filtering
+	if (!empty($_GET[PARAM_GENRE])) {
+		$query = "SELECT * FROM categories WHERE CategoryName=".$_GET[PARAM_GENRE];
+	}
 	
 	$movies = mysqli_query($connection, "SELECT * FROM movies");
 	
