@@ -44,6 +44,7 @@ DROP TABLE IF EXISTS mfarias.Movies ;
 CREATE  TABLE IF NOT EXISTS mfarias.Movies (
   MovieId SMALLINT PRIMARY KEY AUTO_INCREMENT,
   MovieName VARCHAR(50) NOT NULL ,
+  MovieCategory TINYINT NOT NULL ,
   ReleaseCompany TINYINT NOT NULL ,
   ReleaseYear CHAR(4) NOT NULL ,
   Description TEXT NOT NULL ,
@@ -62,7 +63,12 @@ CREATE  TABLE IF NOT EXISTS mfarias.Movies (
     FOREIGN KEY (ReleaseCompany )
     REFERENCES mfarias.ReleaseCompanies (CompanyId )
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON UPDATE NO ACTION,
+	CONSTRAINT FK_MoviesCatetories
+		FOREIGN KEY (MovieCategory)
+		REFERENCES mfarias.Categories (CategoryId)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION )
 ENGINE = InnoDB;
 
 
@@ -92,36 +98,12 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS mfarias.Users ;
 
 CREATE  TABLE IF NOT EXISTS mfarias.Users (
-  Userid SMALLINT PRIMARY KEY AUTO_INCREMENT ,
-  FirstName VARCHAR(25) NOT NULL ,
-  LastName VARCHAR(30) NOT NULL ,
-  EmailAddress VARCHAR(50) NOT NULL ,
-  Administrator TINYINT(1) NOT NULL ,
-  Password VARCHAR(20) NOT NULL  )
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table mfarias.MovieCategories
--- -----------------------------------------------------
-DROP TABLE IF EXISTS mfarias.MovieCategories ;
-
-CREATE  TABLE IF NOT EXISTS mfarias.MovieCategories (
-  JunctionId INT PRIMARY KEY AUTO_INCREMENT ,
-  MovieId SMALLINT NOT NULL ,
-  CategoryId TINYINT NOT NULL ,
-  INDEX FK_MovieCategoriesMovies_idx (MovieId ASC) ,
-  INDEX FK_MovieCategoriesCategories_idx (CategoryId ASC) ,
-  CONSTRAINT FK_MovieCategoriesMovies
-    FOREIGN KEY (MovieId )
-    REFERENCES mfarias.Movies (MovieId )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT FK_MovieCategoriesCategories
-    FOREIGN KEY (CategoryId )
-    REFERENCES mfarias.Categories (CategoryId )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+	UserName VARCHAR(32) NOT NULL PRIMARY KEY,
+	FirstName VARCHAR(25) NOT NULL ,
+	LastName VARCHAR(30) NOT NULL ,
+	EmailAddress VARCHAR(50) NOT NULL ,
+	Administrator TINYINT(1) NOT NULL ,
+	Password VARCHAR(20) NOT NULL )
 ENGINE = InnoDB;
 
 USE mfarias ;
