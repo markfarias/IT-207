@@ -20,9 +20,7 @@
 	
 	$movies = mysqli_query($connection, "SELECT * FROM movies WHERE MovieId=".$movieId);
 	$movie = mysqli_fetch_row($movies);
-	$movieCategories = mysqli_query($connection, "SELECT * FROM moviecategories WHERE MovieId=".$movie[MOVIES_ID]);
-	$movieCategory = mysqli_fetch_row($movieCategories);
-	$categories = mysqli_query($connection, "SELECT * FROM categories WHERE CategoryId=".$movieCategory[2]);
+	$categories = mysqli_query($connection, "SELECT * FROM categories WHERE CategoryId=".$movie[MOVIES_CATEGORY]);
 	$category = mysqli_fetch_row($categories);
 	$movieRatings = mysqli_query($connection, "SELECT * FROM movieratings WHERE RatingId=".$movie[MOVIES_RATING]);
 	$movieRating = mysqli_fetch_row($movieRatings);
@@ -51,7 +49,6 @@
 	echo "\t\t\t\t", '</div>'.PHP_EOL;
 	echo "\t\t\t", '</div>'.PHP_EOL;
 		
-	mysqli_free_result($movieCategories);
 	mysqli_free_result($movieRatings);
 	mysqli_free_result($releaseCompanies);
 	mysqli_free_result($movies);

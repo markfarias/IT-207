@@ -19,16 +19,18 @@
 				define("PARAM_USERNAME", "username");
 				
 				// Database field constants
+				define("CATEGORIES_ID", 0);
 				define("CATEGORIES_NAME", 1);
 				define("MOVIERATINGS_NAME", 1);
 				define("MOVIES_ID", 0);
 				define("MOVIES_TITLE", 1);
-				define("MOVIES_COMPANY", 2);
-				define("MOVIES_YEAR", 3);
-				define("MOVIES_DESC", 4);
-				define("MOVIES_RATING", 5);
-				define("MOVIES_PRICE", 6);
-				define("MOVIES_SHIPPING", 7);
+				define("MOVIES_CATEGORY", 2);
+				define("MOVIES_COMPANY", 3);
+				define("MOVIES_YEAR", 4);
+				define("MOVIES_DESC", 5);
+				define("MOVIES_RATING", 6);
+				define("MOVIES_PRICE", 7);
+				define("MOVIES_SHIPPING", 8);
 				define("RELEASECOMPANIES_NAME", 1);
 				define("REVIEWS_DATE", 2);
 				define("REVIEWS_SCORE", 3);

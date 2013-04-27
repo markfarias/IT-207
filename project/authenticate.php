@@ -12,7 +12,7 @@
 	if (!empty($_POST[PARAM_REGISTRATION])) {
 		if (!empty($_POST[PARAM_EMAIL]) && !empty($_POST[PARAM_FIRSTNAME]) && !empty($_POST[PARAM_LASTNAME]) && 
 			!empty($_POST[PARAM_PASSWORD]) && !empty($_POST[PARAM_USERNAME])) {
-			$query = 'INSERT INTO users VALUES (NULL, "'.$_POST[PARAM_FIRSTNAME].'", "'.$_POST[PARAM_LASTNAME].'", "'.$_POST[PARAM_EMAIL].'", 0, "'.$_POST[PARAM_PASSWORD].'")';		
+			$query = 'INSERT INTO users VALUES ("'.$_POST[PARAM_USERNAME].'", "'.$_POST[PARAM_FIRSTNAME].'", "'.$_POST[PARAM_LASTNAME].'", "'.$_POST[PARAM_EMAIL].'", 0, "'.$_POST[PARAM_PASSWORD].'")';		
 			mysqli_query($connection, $query);
 		
 			echo "Successfully Registered".PHP_EOL;
@@ -25,7 +25,7 @@
 	}
 	else {
 		if (!empty($_POST[PARAM_PASSWORD]) && !empty($_POST[PARAM_USERNAME])) {
-			$result = mysqli_query($connection, 'SELECT * FROM users WHERE Userid="'.$_POST[PARAM_USERNAME].'" AND Password="'.$_POST[PARAM_PASSWORD].'"');
+			$result = mysqli_query($connection, 'SELECT * FROM users WHERE UserName="'.$_POST[PARAM_USERNAME].'" AND Password="'.$_POST[PARAM_PASSWORD].'"');
 			
 			if (mysqli_num_rows($result) == 1) {
 				echo "Log-in successful.".PHP_EOL;
