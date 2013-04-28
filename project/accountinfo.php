@@ -1,7 +1,7 @@
 <?php
 	include 'templates/header.php';
 	
-	$query = 'SELECT * FROM users WHERE UserName="'.$_SESSION["USER"].'"';
+	$query = 'SELECT * FROM users WHERE UserName="'.$_SESSION[SESSION_USER].'"';
 	
 	$results = mysqli_query($connection, $query);
 	$user = mysqli_fetch_row($results);
@@ -25,7 +25,7 @@
 				</tr>
 				<tr>
 					<td class="column_label">Password:</td>
-					<td><input class="column_field" type="text" name="password" value="<?php echo $user[5]; ?>" /></td>
+					<td><input class="column_field" type="password" name="password" value="<?php echo $user[5]; ?>" /></td>
 				</tr>
 			</table>
 			<div class="column_155 center">	
