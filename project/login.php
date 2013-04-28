@@ -12,7 +12,7 @@
 					</tr>
 					<tr>
 						<td class="column_label">Password:</td>
-						<td><input class="column_field" type="text" name="password" /></td>
+						<td><input class="column_field" type="password" name="password" /></td>
 					</tr>
 				</table>
 			</div>
