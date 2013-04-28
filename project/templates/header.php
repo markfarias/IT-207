@@ -5,6 +5,9 @@
 	Project
 	Description: 
 -->
+<?php
+	session_start();
+?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
@@ -36,13 +39,13 @@
 				define("REVIEWS_SCORE", 3);
 				define("REVIEWS_COMMENTS", 4);
 				
-				if (empty($_POST[PARAM_USERNAME])) {
+				if (empty($_SESSION["USER"])) {
 					echo '<a class="header_link" href="login.php">Log-In</a>'.PHP_EOL;
 					echo "\t\t\t", '<a class="header_link" href="register.php">Register</a>'.PHP_EOL;
 				}
 				else {
 					echo '<a class="header_link" href="logout.php">Log-Out</a>'.PHP_EOL;;
-					echo "\t\t\t", '<a class="header_link" href="#">Account Info</a>'.PHP_EOL;
+					echo "\t\t\t", '<a class="header_link" href="accountinfo.php">Account Info</a>'.PHP_EOL;
 				}
 			?>
 			<div>
