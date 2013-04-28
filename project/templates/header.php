@@ -18,8 +18,7 @@
 		<div id="header">
 			<?php
 				define("PARAM_GENRE", "genre");
-				define("PARAM_PASSWORD", "password");
-				define("PARAM_USERNAME", "username");
+				define("SESSION_USER", "user");
 				
 				// Database field constants
 				define("CATEGORIES_ID", 0);
@@ -39,7 +38,7 @@
 				define("REVIEWS_SCORE", 3);
 				define("REVIEWS_COMMENTS", 4);
 				
-				if (empty($_SESSION["USER"])) {
+				if (empty($_SESSION[SESSION_USER])) {
 					echo '<a class="header_link" href="login.php">Log-In</a>'.PHP_EOL;
 					echo "\t\t\t", '<a class="header_link" href="register.php">Register</a>'.PHP_EOL;
 				}

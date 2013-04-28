@@ -8,7 +8,7 @@
 	$results = mysqli_query($connection, $query);
 	$user = mysqli_fetch_row($results);
 ?>
-	<h1>Registration</h1>
+	<h1>Account Information</h1>
 	
 	<form method="post" action="authenticate.php">
 		<div>
@@ -33,7 +33,7 @@
 			<div class="column_155 center">	
 				<input class="button" type="submit" value="Submit" />
 				<input class="button" type="reset" value="Clear" />
-				<input type="hidden" name="registration" value="Yes" />
+				<input type="hidden" name="updateinfo" value="Yes" />
 			</div>
 		</div>
 	</form>
