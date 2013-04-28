@@ -8,7 +8,8 @@
 <?php
 	session_start();
 	//$connection = @mysqli_connect("helios.ite.gmu.edu", "user", "password", "mfarias");
-	$connection = mysqli_connect("localhost", "rkime", "Ad7Mm12345!#", "mfarias");
+	//$connection = mysqli_connect("localhost", "rkime", "Ad7Mm12345!#", "mfarias");
+	$connection = mysqli_connect("localhost", "mfarias", "GoldRush?49", "mfarias", "3306");
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -36,14 +37,15 @@
 				define("MOVIES_RATING", 6);
 				define("MOVIES_PRICE", 7);
 				define("MOVIES_SHIPPING", 8);
+				define("MOVIES_COVER", 9);
 				define("RELEASECOMPANIES_NAME", 1);
 				define("REVIEWS_DATE", 2);
 				define("REVIEWS_SCORE", 3);
 				define("REVIEWS_COMMENTS", 4);
 				
 				if (empty($_SESSION[SESSION_USER])) {
-					echo '<a class="header_link" href="login.php">Log-In</a>'.PHP_EOL;
-					echo "\t\t\t", '<a class="header_link" href="register.php">Register</a>'.PHP_EOL;
+					echo '<p><a class="header_link" href="login.php">Log-In</a>'.PHP_EOL;
+					echo "\t\t\t", '<a class="header_link" href="register.php">Register</a></p>'.PHP_EOL;
 				}
 				else {
 					echo '<a class="header_link" href="logout.php">Log-Out</a>'.PHP_EOL;;

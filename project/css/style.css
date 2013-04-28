@@ -16,6 +16,43 @@ table {
 	border: none;
 }
 
+h1
+{
+	font-family: Tahoma;
+	font-size: 18px;
+	font-weight: bold;
+	color: #006699;
+	letter-spacing: 2px;
+}
+
+h2
+{
+	font-family: 'Segoe UI', Verdana;
+	font-size: 16px;
+	font-weight: normal;
+	color: #FF7519;
+	letter-spacing: 2px;
+}
+
+a:link, a:active, a:visited
+{
+	font-family: Verdana;
+	text-decoration: underline;
+	color: #993333;
+}
+
+a:hover
+{
+	color: #AD5C5C;
+	text-decoration: none;
+}
+
+p
+{
+	font-size: 14px;
+	margin-top: 10px;
+}
+
 .button {
 	width: 75px;
 }
@@ -54,6 +91,10 @@ table {
 
 .column_field {
 	width: 200px;
+}
+
+.clear_floats {
+	clear:both;
 }
 
 .header_link {
