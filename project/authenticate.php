@@ -12,11 +12,7 @@
 	$insertquery = "INSERT INTO users VALUES ('%s', '%s', '%s', '%s', 0, '%s')";
 	$selectquery = "SELECT * FROM users WHERE UserName='%s' AND Password='%s'";
 	$updatequery = "UPDATE users SET %s='%s' WHERE UserName='%s'";
-	
-	
-	//$connection = @mysqli_connect("helios.ite.gmu.edu", "user", "password", "mfarias");
-	$connection = mysqli_connect("localhost", "rkime", "Ad7Mm12345!#", "mfarias");
-	
+		
 	if (!empty($_POST[PARAM_REGISTRATION])) {
 		
 		if (!empty($_POST[PARAM_EMAIL]) && !empty($_POST[PARAM_FIRSTNAME]) && !empty($_POST[PARAM_LASTNAME]) && 
@@ -53,8 +49,6 @@
 			echo "You must enter a value in each field. Click your browser's Back button to return to the form.".PHP_EOL;
 		}	
 	}
-	
-	mysqli_close($connection);
 	
 	include 'templates/footer.php';
 ?>

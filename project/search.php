@@ -3,8 +3,6 @@
 	
 	define("HREF_VIEWMOVIE", 'view_movie.php&#63;MovieId&#61;%d'); 
 	
-	//$connection = @mysqli_connect("helios.ite.gmu.edu", "user", "password", "mfarias");
-	$connection = mysqli_connect("localhost", "rkime", "Ad7Mm12345!#", "mfarias");
 	$query = "SELECT * FROM movies WHERE ";
 				
 	if (empty($_GET["search"])) {
@@ -59,7 +57,6 @@
 	}
 		
 	mysqli_free_result($movies);
-	mysqli_close($connection);
 	
 	include 'templates/footer.php';
 ?>

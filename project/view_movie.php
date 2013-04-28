@@ -15,9 +15,6 @@
 	
 	$movieId = $_GET[PARAM_MOVIE_ID];
 	
-	//$connection = @mysqli_connect("helios.ite.gmu.edu", "user", "password", "mfarias");
-	$connection = mysqli_connect("localhost", "rkime", "Ad7Mm12345!#", "mfarias");
-	
 	$movies = mysqli_query($connection, "SELECT * FROM movies WHERE MovieId=".$movieId);
 	$movie = mysqli_fetch_row($movies);
 	$categories = mysqli_query($connection, "SELECT * FROM categories WHERE CategoryId=".$movie[MOVIES_CATEGORY]);
@@ -77,8 +74,6 @@
 	}
 	
 	echo "\t\t\t</div>".PHP_EOL;
-	
-	mysqli_close($connection);
 	
 	include 'templates/footer.php';
 ?>

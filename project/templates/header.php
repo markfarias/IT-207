@@ -7,6 +7,8 @@
 -->
 <?php
 	session_start();
+	//$connection = @mysqli_connect("helios.ite.gmu.edu", "user", "password", "mfarias");
+	$connection = mysqli_connect("localhost", "rkime", "Ad7Mm12345!#", "mfarias");
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>

@@ -2,9 +2,6 @@
 	include 'templates/header.php';
 	
 	define("HREF_VIEWMOVIE", 'view_movie.php&#63;MovieId&#61;%d'); 
-	
-	//$connection = @mysqli_connect("helios.ite.gmu.edu", "user", "password", "mfarias");
-	$connection = mysqli_connect("localhost", "rkime", "Ad7Mm12345!#", "mfarias");
 	$query = "SELECT * FROM movies";
 	
 	if (!empty($_GET[PARAM_GENRE])) {
@@ -46,7 +43,6 @@
 	}
 	
 	mysqli_free_result($movies);
-	mysqli_close($connection);
 	
 	include 'templates/footer.php';
 ?>

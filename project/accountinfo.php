@@ -1,8 +1,6 @@
 <?php
 	include 'templates/header.php';
 	
-	//$connection = @mysqli_connect("helios.ite.gmu.edu", "user", "password", "mfarias");
-	$connection = mysqli_connect("localhost", "rkime", "Ad7Mm12345!#", "mfarias");
 	$query = 'SELECT * FROM users WHERE UserName="'.$_SESSION["USER"].'"';
 	
 	$results = mysqli_query($connection, $query);
@@ -39,7 +37,6 @@
 	</form>
 <?php
 	mysqli_free_result($results);
-	mysqli_close($connection);
 	
 	include 'templates/footer.php';
 ?>
