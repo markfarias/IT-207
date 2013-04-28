@@ -15,6 +15,7 @@
 		<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
 		<title>Movie Room</title>
 		<link rel="stylesheet" href="./css/style.css" type="text/css" />
+		<link rel="icon" type="image/x-icon" href="favicon.ico"/>
 	</head>
 	<body>
 		<div id="header">

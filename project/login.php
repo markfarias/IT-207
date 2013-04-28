@@ -1,9 +1,3 @@
-<!--Mark Farias
-	Richard Kim
-	IT 207
-	Project
-	Description: 
--->		
 <?php
 	include 'templates/header.php';
 ?>

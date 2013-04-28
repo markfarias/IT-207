@@ -24,35 +24,51 @@
 	$releaseCompanies = mysqli_query($connection, "SELECT * FROM releasecompanies WHERE CompanyId=".$movie[MOVIES_COMPANY]);
 	$releaseCompany = mysqli_fetch_row($releaseCompanies);
 	
-	echo "\t\t\t", '<div class="list_element">'.PHP_EOL;
-	echo "\t\t\t\t", '<div class="column_200 text_center">'.PHP_EOL;
-	echo "\t\t\t\t\tImage<br />TBD".PHP_EOL;
-	echo "\t\t\t\t", '</div>'.PHP_EOL;
-	echo "\t\t\t\t", '<div class="column_800">'.PHP_EOL;
+	echo "\t\t\t", '<div class="list_view">'.PHP_EOL;
+	echo "\t\t\t\t", '<div class="list_element">'.PHP_EOL;
+	echo "\t\t\t\t\t", '<div class="column_200 text_center">'.PHP_EOL;
+	echo "\t\t\t\t\t\tImage<br />TBD".PHP_EOL;
+	echo "\t\t\t\t\t", '</div>'.PHP_EOL;
+	echo "\t\t\t\t\t", '<div class="column_750">'.PHP_EOL;
 		
 	// Movie Information
-	echo "\t\t\t\t\t", '<span class="movie_title">', $movie[MOVIES_TITLE], '</span><br />'.PHP_EOL;
-	echo "\t\t\t\t\t", "Genre: ".$category[CATEGORIES_NAME]."<br />".PHP_EOL;
-	echo "\t\t\t\t\t", "Rating: ".$movieRating[MOVIERATINGS_NAME]."<br />".PHP_EOL;	
-	echo "\t\t\t\t\t", "Release Company: ".$releaseCompany[RELEASECOMPANIES_NAME]."<br />".PHP_EOL;
-	echo "\t\t\t\t\t", "Release Year: ".$movie[MOVIES_YEAR]."<br />".PHP_EOL;
-	echo "\t\t\t\t\t", "Price: $".$movie[MOVIES_PRICE]."<br />".PHP_EOL;
-	echo "\t\t\t\t\t", "Shipping: $".$movie[MOVIES_SHIPPING]."<br />".PHP_EOL;
+	echo "\t\t\t\t\t\t", '<span class="movie_title">', $movie[MOVIES_TITLE], '</span><br />'.PHP_EOL;
+	echo "\t\t\t\t\t\t", "Genre: ".$category[CATEGORIES_NAME]."<br />".PHP_EOL;
+	echo "\t\t\t\t\t\t", "Rating: ".$movieRating[MOVIERATINGS_NAME]."<br />".PHP_EOL;	
+	echo "\t\t\t\t\t\t", "Release Company: ".$releaseCompany[RELEASECOMPANIES_NAME]."<br />".PHP_EOL;
+	echo "\t\t\t\t\t\t", "Release Year: ".$movie[MOVIES_YEAR]."<br />".PHP_EOL;
+	echo "\t\t\t\t\t\t", "Price: $".$movie[MOVIES_PRICE]."<br />".PHP_EOL;
+	echo "\t\t\t\t\t\t", "Shipping: $".$movie[MOVIES_SHIPPING]."<br />".PHP_EOL;
 	
 	// Description
-	echo "\t\t\t\t\t", '<p>'.PHP_EOL;
-	echo "\t\t\t\t\t\t", "Description: ", $movie[MOVIES_DESC].PHP_EOL;
-	echo "\t\t\t\t\t", '</p>'.PHP_EOL;
+	echo "\t\t\t\t\t\t", '<p>'.PHP_EOL;
+	echo "\t\t\t\t\t\t\t", "Description: ", $movie[MOVIES_DESC].PHP_EOL;
+	echo "\t\t\t\t\t\t", '</p>'.PHP_EOL;
+	echo "\t\t\t\t\t", '</div>'.PHP_EOL;
 	echo "\t\t\t\t", '</div>'.PHP_EOL;
 	echo "\t\t\t", '</div>'.PHP_EOL;
-		
+	
 	mysqli_free_result($movieRatings);
 	mysqli_free_result($releaseCompanies);
 	mysqli_free_result($movies);
-		
+	
+	// Add Feedback
+	echo '<div>'.PHP_EOL;
+	echo '<form method="post" action="authenticate.php">'.PHP_EOL;
+	echo 'Rating: <select name="feedback_rating" >'.PHP_EOL;
+	echo '<option value="1">1</option>'.PHP_EOL;
+	echo '<option value="2">2</option>'.PHP_EOL;
+	echo '<option value="3">3</option>'.PHP_EOL;
+	echo '<option value="4">4</option>'.PHP_EOL;
+	echo '<option value="5">5</option>'.PHP_EOL;
+	echo '</select>'.PHP_EOL;
+	echo 'Feedback: <input type="textarea" name="feedback" />'.PHP_EOL;
+	ECHO '<input class="button" type="submit" value="Add" />'.PHP_EOL;
+	echo '</form>'.PHP_EOL;
+	echo '</div>'.PHP_EOL;
+	
 	// User Feedback
-	echo "\t\t\t", '<hr />'.PHP_EOL;
-	echo "\t\t\t", '<div>'.PHP_EOL;
+	echo "\t\t\t", '<div class="list_view">'.PHP_EOL;
 	echo "\t\t\t\t", '<h2>User Reviews</h2>'.PHP_EOL;
 	
 	$reviews = mysqli_query($connection, "SELECT * FROM moviereviews WHERE MovieId=".$movieId);
@@ -60,17 +76,20 @@
 	for ($index = 0; $index < mysqli_num_rows($reviews); $index++) {
 		$review = mysqli_fetch_row($reviews);
 		
-		echo "\t\t\t\t", '<div>'.PHP_EOL;
-		echo "\t\t\t\t\t", '<div class="column_200">'.PHP_EOL;
-		echo "\t\t\t\t\t\t", ScoreToStars($review[REVIEWS_SCORE]).PHP_EOL;
-		echo "\t\t\t\t\t", '</div>'.PHP_EOL;
-		echo "\t\t\t\t\t", '<div class="column_200">'.PHP_EOL;
-		echo "\t\t\t\t\t\t", $review[REVIEWS_DATE].PHP_EOL;
-		echo "\t\t\t\t\t", '</div>'.PHP_EOL;
-		echo "\t\t\t\t\t", '<div class="column_600">'.PHP_EOL;
-		echo "\t\t\t\t\t\t", $review[REVIEWS_COMMENTS].PHP_EOL;
+		echo "\t\t\t\t", '<div class="list_element_feedback">'.PHP_EOL;
+		echo "\t\t\t\t\t", '<div>'.PHP_EOL;
+		echo "\t\t\t\t\t\t", '<div class="column_175">'.PHP_EOL;
+		echo "\t\t\t\t\t\t\t", ScoreToStars($review[REVIEWS_SCORE]).PHP_EOL;
+		echo "\t\t\t\t\t\t", '</div>'.PHP_EOL;
+		echo "\t\t\t\t\t\t", '<div class="column_175">'.PHP_EOL;
+		echo "\t\t\t\t\t\t\t", $review[REVIEWS_DATE].PHP_EOL;
+		echo "\t\t\t\t\t\t", '</div>'.PHP_EOL;
+		echo "\t\t\t\t\t\t", '<div class="column_600">'.PHP_EOL;
+		echo "\t\t\t\t\t\t\t", $review[REVIEWS_COMMENTS].PHP_EOL;
+		echo "\t\t\t\t\t\t", '</div>'.PHP_EOL;
 		echo "\t\t\t\t\t", '</div>'.PHP_EOL;
 		echo "\t\t\t\t", '</div>'.PHP_EOL;
+		echo "\t\t\t\t", '<hr />'.PHP_EOL;
 	}
 	
 	echo "\t\t\t</div>".PHP_EOL;

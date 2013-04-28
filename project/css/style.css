@@ -28,19 +28,24 @@ table {
 	width: 155px;
 }
 
+.column_175 {
+	float: left;
+	width: 175px;
+}
+
 .column_200 {
 	float: left;
-	height: 100%; width: 200px;
+	width: 200px;
 }
 
 .column_600 {
 	float: left;
-	height: 100%; width: 600px;
+	width: 600px;
 }
 
-.column_800 {
+.column_750 {
 	float: left;
-	heigh: 100%; width: 800px;
+	width: 750px;
 }
 
 .column_label {
@@ -57,9 +62,18 @@ table {
 }
 
 .list_element {
-	margin-left: -15px; margin-right: -15px;
 	padding-top: 20px;
-	height: 150px; width: 1000px;	
+	height: 150px; width: 950px;	
+}
+
+.list_element_feedback {
+	padding-top: 5px;
+	height: 50px; width: 950px;
+}
+
+.list_view {
+	margin-left: auto; margin-right: auto;
+	height: 100%; width: 950px;
 }
 
 .movie_title {
@@ -74,7 +88,7 @@ table {
 #content {
 	background-color: white;
 	margin-left: auto; margin-right: auto; margin-top: 4px;
-	width: 1000px;
+	height: 100%; width: 1000px;
 }
 
 #menu {
@@ -93,7 +107,6 @@ table {
 /* CSS for Horizontal Menu */
 #menu ul {
 	background-color: slategray;
-	/*border-bottom: 1px solid #000000; border-top: 1px solid #000000;*/
 	display: inline-block;
 	font-size: 12px; font-weight: bold;
 	height: 30px; width: auto;
