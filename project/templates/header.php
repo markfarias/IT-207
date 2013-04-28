@@ -47,35 +47,40 @@
 					echo "\t\t\t", '<a class="header_link" href="accountinfo.php">Account Info</a>'.PHP_EOL;
 				}
 			?>
-			<div>
-				<img src="images/banner.png" alt="Movie Room Banner" />
-			</div>
-		</div>
-		<div id="menu">
-			<ul>
-				<?php					
-					$genres = array("Action", "Adventure", "Comedy", "Documentary", "Romance", "Sci-Fi", "Thriller");
-					
-					if (empty($_GET[PARAM_GENRE])) {
-						echo '<li class="active"><a href="index.php">All</a></li>'.PHP_EOL;
+			
+			<form method="get" action="search.php">
+				<input type="text" name="search" <?php if (!empty($_GET["search"])) { echo 'value="'.$_GET["search"].'"'; } ?>/>
+				<input class="button" type="submit" value="Search" />
+			</form>
+			
+			<img src="images/banner.png" alt="Movie Room Banner" />
+			
+			<div id="menu">
+				<ul>
+					<?php					
+						$genres = array("Action", "Adventure", "Comedy", "Documentary", "Romance", "Sci-Fi", "Thriller");
 						
-						foreach ($genres as $genre) {
-							echo "\t\t\t\t", '<li><a href="index.php&#63;genre&#61;', $genre, '">', $genre, '</a></li>'.PHP_EOL;
-						}
-					}
-					else {
-						echo '<li><a href="index.php">All</a></li>'.PHP_EOL;
-						
-						foreach ($genres as $genre) {
-							if ($genre == $_GET[PARAM_GENRE]) {
-								echo "\t\t\t\t", '<li class="active"><a href="index.php&#63;genre&#61;', $genre, '">', $genre, '</a></li>'.PHP_EOL;
-							}
-							else {
+						if (empty($_GET[PARAM_GENRE])) {
+							echo '<li class="active"><a href="index.php">All</a></li>'.PHP_EOL;
+							
+							foreach ($genres as $genre) {
 								echo "\t\t\t\t", '<li><a href="index.php&#63;genre&#61;', $genre, '">', $genre, '</a></li>'.PHP_EOL;
 							}
 						}
-					}
-				?>
-			</ul>
+						else {
+							echo '<li><a href="index.php">All</a></li>'.PHP_EOL;
+							
+							foreach ($genres as $genre) {
+								if ($genre == $_GET[PARAM_GENRE]) {
+									echo "\t\t\t\t", '<li class="active"><a href="index.php&#63;genre&#61;', $genre, '">', $genre, '</a></li>'.PHP_EOL;
+								}
+								else {
+									echo "\t\t\t\t", '<li><a href="index.php&#63;genre&#61;', $genre, '">', $genre, '</a></li>'.PHP_EOL;
+								}
+							}
+						}
+					?>
+				</ul>
+			</div>
 		</div>
 		<div id="content">
