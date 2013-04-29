@@ -22,6 +22,10 @@
 		<div id="header" class="center text_align_right">
 			<?php
 				define("PARAM_GENRE", "genre");
+				define("PARAM_SEARCH", "search");
+				define("PARAM_SORT", "sort");
+				
+				// Session constants
 				define("SESSION_USER", "user");
 				
 				// Database field constants
@@ -54,7 +58,7 @@
 			?>
 			
 			<form method="get" action="search.php">
-				<input type="text" name="search" <?php if (!empty($_GET["search"])) { echo 'value="'.$_GET["search"].'"'; } ?>/>
+				<input type="text" name="search" <?php if (!empty($_GET[PARAM_SEARCH])) { echo 'value="'.$_GET[PARAM_SEARCH].'"'; } ?>/>
 				<input class="button" type="submit" value="Search" />
 			</form>
 			

@@ -5,12 +5,12 @@
 	
 	$query = "SELECT * FROM movies WHERE ";
 				
-	if (empty($_GET["search"])) {
+	if (empty($_GET[PARAM_SEARCH])) {
 		$query = "SELECT * FROM movies";
 	}
 	else {
 		$fields = mysqli_query($connection, "SHOW COLUMNS FROM movies");
-		$searchTerm = trim($_GET["search"]);
+		$searchTerm = trim($_GET[PARAM_SEARCH]);
 			
 		for ($index = 0; $index < mysqli_num_rows($fields); $index++) {
 			$field = mysqli_fetch_row($fields);

@@ -2,7 +2,7 @@
 	include 'templates/header.php';
 	
 	define("HREF_VIEWMOVIE", 'view_movie.php&#63;MovieId&#61;%d'); 
-	
+	define("HREF_GET_PARAM", '%s&#61;%s');
 	function cmp_ascending($a, $b) {
 		if ($a[1] == $b[1]) {
 			return 0;
@@ -32,8 +32,8 @@
 	$movies = mysqli_fetch_all($result);
 	mysqli_free_result($result);
 	
-	if (!empty($_GET["sort"])) {
-		if ($_GET["sort"] == "ascending") {
+	if (!empty($_GET[PARAM_SORT])) {
+		if ($_GET[PARAM_SORT] == "ascending") {
 			uasort($movies, 'cmp_ascending');
 		}
 		else {
@@ -42,8 +42,14 @@
 	}
 	
 	echo "\t\t\t", '<div class="view text_align_right">'.PHP_EOL;
-	echo "\t\t\t\t", '<a class="link_horizontal" href="index.php&#63;sort&#61;ascending">Sort A-Z</a>'.PHP_EOL;
-    echo "\t\t\t\t", '<a class="link_horizontal" href="index.php&#63;sort&#61;descending">Sort Z-A</a><br />'.PHP_EOL;
+	if (empty($_GET[PARAM_GENRE])) {
+		echo "\t\t\t\t", '<a class="link_horizontal" href="index.php&#63;'.sprintf(HREF_GET_PARAM, PARAM_SORT, "ascending").'">Sort A-Z</a>'.PHP_EOL;
+		echo "\t\t\t\t", '<a class="link_horizontal" href="index.php&#63;'.sprintf(HREF_GET_PARAM, PARAM_SORT, "descending").'">Sort Z-A</a><br />'.PHP_EOL;
+	}
+	else {
+		echo "\t\t\t\t", '<a class="link_horizontal" href="index.php&#63;'.sprintf(HREF_GET_PARAM, PARAM_SORT, "ascending").'&#38;'.sprintf(HREF_GET_PARAM, PARAM_GENRE, $_GET[PARAM_GENRE]).'">Sort A-Z</a>'.PHP_EOL;
+		echo "\t\t\t\t", '<a class="link_horizontal" href="index.php&#63;'.sprintf(HREF_GET_PARAM, PARAM_SORT, "descending").'&#38;'.sprintf(HREF_GET_PARAM, PARAM_GENRE, $_GET[PARAM_GENRE]).'">Sort Z-A</a><br />'.PHP_EOL;
+	}
 	echo "\t\t\t", '</div>'.PHP_EOL;
 	
 	echo "\t\t\t", '<div class="list_view">'.PHP_EOL;
