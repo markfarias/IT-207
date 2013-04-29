@@ -38,7 +38,7 @@
 		
 		echo "\t\t\t\t", '<div class="list_element">'.PHP_EOL;
 		echo "\t\t\t\t\t", '<div class="column_200 text_center">'.PHP_EOL;
-		echo "\t\t\t\t\t\tImage<br />TBD".PHP_EOL;
+		echo "\t\t\t\t\t\t", '<img class="cover_image" src="' . $movie[MOVIES_COVER] . '" alt_text="' . $movie[MOVIES_TITLE] . '" />' .PHP_EOL;
 		echo "\t\t\t\t\t", '</div>'.PHP_EOL;
 		echo "\t\t\t\t\t", '<div class="column_750">'.PHP_EOL;
 		
@@ -53,6 +53,7 @@
 		echo "\t\t\t\t\t\t", '</p>'.PHP_EOL;
 		echo "\t\t\t\t\t", '</div>'.PHP_EOL;
 		echo "\t\t\t\t", '</div>'.PHP_EOL;
+		echo "\t\t\t\t", '<div class="clear_floats"></div>'.PHP_EOL;
 		
 		mysqli_free_result($categories);
 		mysqli_free_result($movieRatings);

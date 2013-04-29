@@ -89,14 +89,18 @@ p {
 }
 
 .clear_floats {
-	clear:both;
+	clear: both;
+}
+
+.text_align_right {
+	text-align: right;
 }
 
 .cover_image {
 	height: 180px; width: 180px;
 }
 
-.header_link {
+.link_horizontal {
 	padding-left: 15px;
 	text-decoration: none;
 }
@@ -143,9 +147,7 @@ p {
 }
 
 #header {
-	margin-left: auto; margin-right: auto;
 	width: 1000px;
-	text-align: right;
 }
 
 /* CSS for Horizontal Menu */
