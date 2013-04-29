@@ -33,13 +33,12 @@
 		
 		echo "Update successful.".PHP_EOL;
 	}
-	else {
+	else {		
 		if (!empty($_POST[PARAM_PASSWORD]) && !empty($_POST[PARAM_USERNAME])) {
 			$result = mysqli_query($connection, sprintf($selectquery, $_POST[PARAM_USERNAME], $_POST[PARAM_PASSWORD]));
-			
 			if (mysqli_num_rows($result) == 1) {
 				$_SESSION[SESSION_USER] = $_POST[PARAM_USERNAME];
-				echo "Log-in successful.".PHP_EOL;
+				header('Location: index.php');
 			}
 			else {
 				echo "Log-in failed.".PHP_EOL;

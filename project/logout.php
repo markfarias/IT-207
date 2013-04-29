@@ -5,7 +5,7 @@
 	
 	include 'templates/header.php';
 	
-	echo "Logged out.".PHP_EOL;
+	echo "<h2>Logged out.</h2>".PHP_EOL;
 		
 	include 'templates/footer.php';
 ?>

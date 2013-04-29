@@ -9,8 +9,7 @@ DROP TABLE IF EXISTS mfarias.Categories ;
 
 CREATE  TABLE IF NOT EXISTS mfarias.Categories (
   CategoryId TINYINT PRIMARY KEY,
-  CategoryName VARCHAR(30) NOT NULL ,
-  Description VARCHAR(255) NULL )
+  CategoryName VARCHAR(30) NOT NULL )
 ENGINE = InnoDB;
 
 
