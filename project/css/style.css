@@ -16,8 +16,7 @@ table {
 	border: none;
 }
 
-h1
-{
+h1 {
 	font-family: Tahoma;
 	font-size: 18px;
 	font-weight: bold;
@@ -25,8 +24,7 @@ h1
 	letter-spacing: 2px;
 }
 
-h2
-{
+h2 {
 	font-family: 'Segoe UI', Verdana;
 	font-size: 16px;
 	font-weight: normal;
@@ -34,21 +32,18 @@ h2
 	letter-spacing: 2px;
 }
 
-a:link, a:active, a:visited
-{
+a:link, a:active, a:visited {
 	font-family: Verdana;
 	text-decoration: underline;
 	color: #993333;
 }
 
-a:hover
-{
+a:hover {
 	color: #AD5C5C;
 	text-decoration: none;
 }
 
-p
-{
+p {
 	font-size: 14px;
 	margin-top: 10px;
 }
@@ -97,13 +92,16 @@ p
 	clear:both;
 }
 
+.cover_image {
+	height: 180px; width: 180px;
+}
+
 .header_link {
 	padding-left: 15px;
 	text-decoration: none;
 }
 
 .list_element {
-	padding-top: 20px;
 	height: 150px; width: 950px;	
 }
 
@@ -113,8 +111,9 @@ p
 }
 
 .list_view {
+	padding: 10px;
 	margin-left: auto; margin-right: auto;
-	height: 100%; width: 950px;
+	width: 950px;
 }
 
 .movie_title {
@@ -124,6 +123,10 @@ p
 
 .text_center {
 	text-align: center;
+}
+
+.view {
+	padding: 10px;
 }
 
 #content {

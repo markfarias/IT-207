@@ -44,8 +44,8 @@
 				define("REVIEWS_COMMENTS", 4);
 				
 				if (empty($_SESSION[SESSION_USER])) {
-					echo '<p><a class="header_link" href="login.php">Log-In</a>'.PHP_EOL;
-					echo "\t\t\t", '<a class="header_link" href="register.php">Register</a></p>'.PHP_EOL;
+					echo '<a class="header_link" href="login.php">Log-In</a>'.PHP_EOL;
+					echo "\t\t\t", '<a class="header_link" href="register.php">Register</a>'.PHP_EOL;
 				}
 				else {
 					echo '<a class="header_link" href="logout.php">Log-Out</a>'.PHP_EOL;;
