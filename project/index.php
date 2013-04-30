@@ -23,6 +23,9 @@
 	define("PARAM_LOWER_BOUND", "lowerBound");
 	define("PARAM_UPPER_BOUND", "upperBound");
 	
+	$start = 0;
+	$end = MAX_LIST_ITEMS;
+	$params = array();	
 	$query = "SELECT * FROM movies";
 	
 	if (!empty($_GET[PARAM_GENRE])) {
@@ -35,10 +38,6 @@
 	
 	$result = mysqli_query($connection, $query);
 	$movies = mysqli_fetch_all($result);
-	
-	$params = array();	
-	$start = 0;
-	$end = MAX_LIST_ITEMS;
 	
 	if (count($movies) < MAX_LIST_ITEMS) {
 		$end = count($movies);
