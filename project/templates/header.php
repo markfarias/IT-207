@@ -8,8 +8,8 @@
 <?php
 	session_start();
 	//$connection = @mysqli_connect("helios.ite.gmu.edu", "user", "password", "mfarias");
-	//$connection = mysqli_connect("localhost", "rkime", "Ad7Mm12345!#", "mfarias");
-	$connection = mysqli_connect("localhost", "mfarias", "GoldRush?49", "mfarias", "3306");
+	$connection = mysqli_connect("localhost", "rkime", "Ad7Mm12345!#", "mfarias");
+	//$connection = mysqli_connect("localhost", "mfarias", "GoldRush?49", "mfarias", "3306");
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -23,6 +23,9 @@
 			<div id="header_inner">
 				<?php
 					define("PARAM_GENRE", "genre");
+					define("PARAM_SEARCH", "search");
+					define("PARAM_SORT", "sort");
+					
 					define("SESSION_USER", "user");
 					define("SESSION_USERS_NAME", "usersName");
 					define("SESSION_USER_ADMIN", "admin");
@@ -62,7 +65,7 @@
 					</div>
 					<div id="search">
 						<form method="get" action="search.php">
-							<input type="text" name="search" <?php if (!empty($_GET["search"])) { echo 'value="'.$_GET["search"].'"'; } ?>/>
+							<input type="text" name="search" <?php if (!empty($_GET[PARAM_SEARCH])) { echo 'value="'.$_GET[PARAM_SEARCH].'"'; } ?>/>
 							<input class="button" type="submit" value="Search" />
 						</form>
 					</div>
@@ -81,6 +84,7 @@
 						if(!empty($_GET[PARAM_GENRE]) && ($_GET[PARAM_GENRE] == "a")) {
 							//echo $_GET[PARAM_GENRE];
 							echo '<li class="active"><a href="index.php&#63;genre&#61;a">All</a></li>'.PHP_EOL;
+
 						}
 						else {
 							echo '<li><a href="index.php&#63;genre&#61;a">All</a></li>'.PHP_EOL;

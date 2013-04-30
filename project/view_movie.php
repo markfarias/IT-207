@@ -44,6 +44,24 @@
 	echo "\t\t\t\t\t\t", '<p>'.PHP_EOL;
 	echo "\t\t\t\t\t\t\t", "Description: ", $movie[MOVIES_DESC].PHP_EOL;
 	echo "\t\t\t\t\t\t", '</p>'.PHP_EOL;
+	
+	// Allow adding feedback only registered users
+	/*if (!empty($_SESSION[SESSION_USER])) {
+		echo '<div style="vertical-align: top;">'.PHP_EOL;
+		echo '<form method="post" action="view_movie.php">'.PHP_EOL;
+		echo 'Rating: <select name="feedback_rating" >'.PHP_EOL;
+		echo '<option value="1">1</option>'.PHP_EOL;
+		echo '<option value="2">2</option>'.PHP_EOL;
+		echo '<option value="3">3</option>'.PHP_EOL;
+		echo '<option value="4">4</option>'.PHP_EOL;
+		echo '<option value="5">5</option>'.PHP_EOL;
+		echo '</select>'.PHP_EOL;
+		echo 'Feedback: <textarea name="feedback" col="200" rows="2"></textarea>'.PHP_EOL;
+		echo '<input class="button" type="submit" value="Add" />'.PHP_EOL;
+		echo '</form>'.PHP_EOL;
+		echo '</div>'.PHP_EOL;
+	}*/
+	
 	echo "\t\t\t\t\t", '</div>'.PHP_EOL;
 	echo "\t\t\t\t", '</div>'.PHP_EOL;
 	echo "\t\t\t", '</div>'.PHP_EOL;
@@ -52,21 +70,6 @@
 	mysqli_free_result($movieRatings);
 	mysqli_free_result($releaseCompanies);
 	mysqli_free_result($movies);
-	
-	// Add Feedback
-	echo '<div>'.PHP_EOL;
-	echo '<form method="post" action="authenticate.php">'.PHP_EOL;
-	echo 'Rating: <select name="feedback_rating" >'.PHP_EOL;
-	echo '<option value="1">1</option>'.PHP_EOL;
-	echo '<option value="2">2</option>'.PHP_EOL;
-	echo '<option value="3">3</option>'.PHP_EOL;
-	echo '<option value="4">4</option>'.PHP_EOL;
-	echo '<option value="5">5</option>'.PHP_EOL;
-	echo '</select>'.PHP_EOL;
-	echo 'Feedback: <input type="textarea" name="feedback" />'.PHP_EOL;
-	ECHO '<input class="button" type="submit" value="Add" />'.PHP_EOL;
-	echo '</form>'.PHP_EOL;
-	echo '</div>'.PHP_EOL;
 	
 	// User Feedback
 	echo "\t\t\t", '<div class="list_view">'.PHP_EOL;

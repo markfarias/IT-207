@@ -5,7 +5,7 @@
 	
 	include 'templates/header.php';
 	
-	echo "<h2>Logged out.</h2>".PHP_EOL;
+	header('Location: index.php');
 		
 	include 'templates/footer.php';
 ?>
