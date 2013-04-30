@@ -1,9 +1,8 @@
 <?php
 	include 'templates/header.php';
 ?>
-			<div class="view">
-				<h1>Log-In</h1>
-				
+			<h1>Log-In</h1>
+			<div class="view">				
 				<form method="post" action="authenticate.php">
 					<div>
 						<table class="center">

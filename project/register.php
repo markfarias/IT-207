@@ -1,9 +1,8 @@
 <?php
 	include 'templates/header.php';
 ?>
+			<h1>Registration</h1>
 			<div class="view">
-				<h1>Registration</h1>
-				
 				<form method="post" action="authenticate.php">
 					<div>
 						<table class="center">

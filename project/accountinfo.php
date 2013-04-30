@@ -6,9 +6,8 @@
 	$results = mysqli_query($connection, $query);
 	$user = mysqli_fetch_row($results);
 ?>
+			<h1>Account Information</h1>
 			<div class="view">
-				<h1>Account Information</h1>
-				
 				<form method="post" action="authenticate.php">
 					<div>
 						<table class="center">
