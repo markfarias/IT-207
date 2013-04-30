@@ -37,10 +37,10 @@
 		$movieRating = mysqli_fetch_row($movieRatings);
 		
 		echo "\t\t\t\t", '<div class="list_element">'.PHP_EOL;
-		echo "\t\t\t\t\t", '<div class="column_200 text_center">'.PHP_EOL;
+		echo "\t\t\t\t\t", '<div class="column_200 float_left">'.PHP_EOL;
 		echo "\t\t\t\t\t\t", '<img class="cover_image" src="' . $movie[MOVIES_COVER] . '" alt_text="' . $movie[MOVIES_TITLE] . '" />' .PHP_EOL;
 		echo "\t\t\t\t\t", '</div>'.PHP_EOL;
-		echo "\t\t\t\t\t", '<div class="column_750">'.PHP_EOL;
+		echo "\t\t\t\t\t", '<div class="column_750 float_left">'.PHP_EOL;
 		
 		// Movie Info
 		echo "\t\t\t\t\t\t", '<a href="', sprintf(HREF_VIEWMOVIE, $movie[MOVIES_ID]), '"><span class="movie_title">', $movie[MOVIES_TITLE], '</span></a><br />'.PHP_EOL;		

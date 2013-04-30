@@ -26,10 +26,10 @@
 	
 	echo "\t\t\t", '<div class="list_view">'.PHP_EOL;
 	echo "\t\t\t\t", '<div class="list_element">'.PHP_EOL;
-	echo "\t\t\t\t\t", '<div class="column_200 text_center">'.PHP_EOL;
+	echo "\t\t\t\t\t", '<div class="column_200 float_left">'.PHP_EOL;
 	echo "\t\t\t\t\t\t", '<img src="' . $movie[MOVIES_COVER] . '" alt_text="' . $movie[MOVIES_TITLE] . '" width="100" height="150" />' .PHP_EOL;
 	echo "\t\t\t\t\t", '</div>'.PHP_EOL;
-	echo "\t\t\t\t\t", '<div class="column_750">'.PHP_EOL;
+	echo "\t\t\t\t\t", '<div class="column_750 float_left">'.PHP_EOL;
 		
 	// Movie Information
 	echo "\t\t\t\t\t\t", '<span class="movie_title">', $movie[MOVIES_TITLE], '</span><br />'.PHP_EOL;
