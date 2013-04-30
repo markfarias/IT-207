@@ -43,7 +43,7 @@
 		$end = count($movies);
 	}
 	
-	echo "\t\t\t", '<div class="view text_align_right">'.PHP_EOL;
+	echo "\t\t\t", '<div class="text_align_right">'.PHP_EOL;
 	if (!empty($_GET[PARAM_GENRE])) {
 		echo "\t\t\t\t", '<a class="link_horizontal" href="index.php&#63;'.implode('&#38;', $params).'&#38;'.sprintf(HREF_GET_PARAM, PARAM_SORT, "ascending").'">Sort A-Z</a>'.PHP_EOL;
 		echo "\t\t\t\t", '<a class="link_horizontal" href="index.php&#63;'.implode('&#38;', $params).'&#38;'.sprintf(HREF_GET_PARAM, PARAM_SORT, "descending").'">Sort Z-A</a><br />'.PHP_EOL;
@@ -70,7 +70,7 @@
 		$end = $_GET[PARAM_UPPER_BOUND];
 	}
 	
-	echo "\t\t\t", '<div class="column_1000">'.PHP_EOL;
+	echo "\t\t\t", '<div>'.PHP_EOL;
 	if ($start != 0) {
 		echo '<a class="link_prev" href="index.php&#63;'.implode('&#38;', $params).'&#38;'.sprintf(HREF_GET_PARAM, PARAM_LOWER_BOUND, $start - MAX_LIST_ITEMS).'&#38;'.sprintf(HREF_GET_PARAM, PARAM_UPPER_BOUND, $end - MAX_LIST_ITEMS).'"><< Prev</a>'.PHP_EOL;
 	}
@@ -97,7 +97,7 @@
 		echo "\t\t\t\t\t", '<div class="column_200 float_left">'.PHP_EOL;
 		echo "\t\t\t\t\t\t", '<img class="cover_image" src="' . $movie[MOVIES_COVER] . '" alt_text="' . $movie[MOVIES_TITLE] . '" />' .PHP_EOL;
 		echo "\t\t\t\t\t", '</div>'.PHP_EOL;
-		echo "\t\t\t\t\t", '<div class="column_750 float_left">'.PHP_EOL;
+		echo "\t\t\t\t\t", '<div class="column_700 float_left">'.PHP_EOL;
 		
 		// Movie Info
 		echo "\t\t\t\t\t\t", '<a href="', sprintf(HREF_VIEWMOVIE, $movie[MOVIES_ID]), '"><span class="movie_title">', $movie[MOVIES_TITLE], '</span></a><br />'.PHP_EOL;		

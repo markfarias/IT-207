@@ -29,7 +29,7 @@
 	echo "\t\t\t\t\t", '<div class="column_200 float_left">'.PHP_EOL;
 	echo "\t\t\t\t\t\t", '<img src="' . $movie[MOVIES_COVER] . '" alt_text="' . $movie[MOVIES_TITLE] . '" width="100" height="150" />' .PHP_EOL;
 	echo "\t\t\t\t\t", '</div>'.PHP_EOL;
-	echo "\t\t\t\t\t", '<div class="column_750 float_left">'.PHP_EOL;
+	echo "\t\t\t\t\t", '<div class="column_700 float_left">'.PHP_EOL;
 		
 	// Movie Information
 	echo "\t\t\t\t\t\t", '<span class="movie_title">', $movie[MOVIES_TITLE], '</span><br />'.PHP_EOL;
@@ -82,13 +82,13 @@
 		
 		echo "\t\t\t\t", '<div class="list_element_feedback">'.PHP_EOL;
 		echo "\t\t\t\t\t", '<div>'.PHP_EOL;
-		echo "\t\t\t\t\t\t", '<div class="column_175">'.PHP_EOL;
+		echo "\t\t\t\t\t\t", '<div class="column_150 float_left">'.PHP_EOL;
 		echo "\t\t\t\t\t\t\t", ScoreToStars($review[REVIEWS_SCORE]).PHP_EOL;
 		echo "\t\t\t\t\t\t", '</div>'.PHP_EOL;
-		echo "\t\t\t\t\t\t", '<div class="column_175">'.PHP_EOL;
+		echo "\t\t\t\t\t\t", '<div class="column_150 float_left">'.PHP_EOL;
 		echo "\t\t\t\t\t\t\t", $review[REVIEWS_DATE].PHP_EOL;
 		echo "\t\t\t\t\t\t", '</div>'.PHP_EOL;
-		echo "\t\t\t\t\t\t", '<div class="column_600">'.PHP_EOL;
+		echo "\t\t\t\t\t\t", '<div class="column_600 float_left">'.PHP_EOL;
 		echo "\t\t\t\t\t\t\t", $review[REVIEWS_COMMENTS].PHP_EOL;
 		echo "\t\t\t\t\t\t", '</div>'.PHP_EOL;
 		echo "\t\t\t\t\t", '</div>'.PHP_EOL;

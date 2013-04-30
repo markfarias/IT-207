@@ -73,8 +73,8 @@ p {
 	width: 155px;
 }
 
-.column_175 {
-	width: 175px;
+.column_150 {
+	width: 150px;
 }
 
 .column_200 {
@@ -85,8 +85,8 @@ p {
 	width: 600px;
 }
 
-.column_750 {
-	width: 750px;
+.column_700 {
+	width: 700px;
 }
 
 .column_label {
@@ -137,12 +137,12 @@ p {
 }
 
 .list_element {
-	height: 150px; width: 950px;	
+	height: 150px; width: 900px;	
 }
 
 .list_element_feedback {
 	padding-top: 5px;
-	height: 50px; width: 950px;
+	height: 75px; width: 900px;
 }
 
 .list_view {
