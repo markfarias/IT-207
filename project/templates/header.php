@@ -8,8 +8,8 @@
 <?php
 	session_start();
 	//$connection = @mysqli_connect("helios.ite.gmu.edu", "user", "password", "mfarias");
-	$connection = mysqli_connect("localhost", "rkime", "Ad7Mm12345!#", "mfarias");
-	//$connection = mysqli_connect("localhost", "mfarias", "GoldRush?49", "mfarias", "3306");
+	//$connection = mysqli_connect("localhost", "rkime", "Ad7Mm12345!#", "mfarias");
+	$connection = mysqli_connect("localhost", "mfarias", "GoldRush?49", "mfarias", "3306");
 	
 	if(mysqli_connect_errno($connection)) {
 		header('Location: ./error.html');
