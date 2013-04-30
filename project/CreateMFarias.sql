@@ -118,7 +118,7 @@ VALUES
 (4, 'Documentary'),
 (5, 'Romance'),
 (6, 'Sci-Fi'),
-(7, 'Thriller');
+(7, 'Horror');
 
 -- -----------------------------------------------------
 -- Load up the Movies Release Companies
@@ -143,3 +143,13 @@ VALUES
 (3, 'PG-13'),
 (4, 'R'),
 (5, 'NR');
+
+-- -----------------------------------------------------
+-- Pre-load some movies
+-- -----------------------------------------------------
+INSERT Movies(MovieName, MovieCategory, ReleaseCompany, ReleaseYear, Description, Rating, Price, ShippingRate, CoverImage)
+VALUES
+('Apollo 18', 6, 3, '2011', 'Decades-old found footage from NASAs abandoned Apollo 18 mission, where two American astronauts were sent on a secret expedition, reveals the reason the U.S. has never returned to the moon.', 3, 39.99, 5.99, 'images/covers/apollo18.jpg'),
+('Assassins Run', 1, 1, '2013', 'Maya becomes the target of the Russian mafia after her husband, a successful American businessman, is killed.', 4, 29.99, 3.99, 'images/covers/AssassinsRun.jpg'),
+('Battleship', 6, 7, '2012', 'A fleet of ships is forced to do battle with an armada of unknown origins in order to discover and thwart their destructive goals.', 3, 55.99, 5.99, 'images/covers/Battleship.jpg'),
+

@@ -5,15 +5,27 @@
 	Description: Style sheet for the group project.
 */
 body {
-	background-color: gainsboro;
+	background-color: #fff;
 	color: black;
 	font-family: sans-serif;
 	font-size: 12px;
 	height: 100%;
 }
 
-table {
-	border: none;
+table
+{
+	border-style: solid;
+	border-width: 1px;
+	border-color: #000099;
+}
+
+td
+{
+	border-bottom-style: dotted;
+	border-bottom-width: 1px;
+	border-bottom-color: #000099;
+	font-size: 14px;
+	color: #000099;
 }
 
 h1
@@ -51,6 +63,7 @@ p
 {
 	font-size: 14px;
 	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 .button {
@@ -98,7 +111,7 @@ p
 }
 
 .header_link {
-	padding-left: 15px;
+	padding-left: 5px;
 	text-decoration: none;
 }
 
@@ -126,27 +139,56 @@ p
 	text-align: center;
 }
 
-#content {
+#content_outer {
 	background-color: white;
-	margin-left: auto; margin-right: auto; margin-top: 4px;
-	height: 100%; width: 1000px;
+	margin-top: 4px;
+	height: 100%; width: 100%;
+	border-bottom-style: dotted;
+	border-bottom-width: 1px;
+	border-bottom-color: #cccccc;
 }
 
-#menu {
+#content_inner {
+	width: 900px;
+	margin-left: auto; 
+	margin-right: auto;
+	padding-bottom: 10px;
+}
+
+#menu_outer {
 	background-color: slategray;
-	margin-left: auto; margin-right: auto;
-	width: 1000px;
+	width: 100%;
+}
+
+#menu_inner {
+	margin-left: auto; 
+	margin-right: auto;
 	text-align: center;
 }
 
-#header {
-	margin-left: auto; margin-right: auto;
-	width: 1000px;
+#header_outer {
+	width: 100%;
 	text-align: right;
 }
 
+#header_inner {
+	margin-left: auto; 
+	margin-right: auto;
+	width: 1000px;
+}
+
+#banner {
+	float: left;
+}
+
+#search {
+	float: right;
+	margin-right: 5px;
+	margin-top: -30px;
+}
+
 /* CSS for Horizontal Menu */
-#menu ul {
+#menu_inner ul {
 	background-color: slategray;
 	display: inline-block;
 	font-size: 12px; font-weight: bold;
@@ -157,12 +199,12 @@ p
 	text-align: center;
 }
 
-#menu li {
+#menu_inner li {
 	display: block; float: left;
 	margin: 0; padding: 0;
 }
 	
-#menu li a {
+#menu_inner li a {
 	display: block; float: left;
 	font-weight: bold;
 	color: white;
@@ -170,14 +212,14 @@ p
 	padding: 8px 20px 0 20px;
 }
 	
-#menu li a:hover {	
+#menu_inner li a:hover {	
 	background-color: white;
 	border-bottom: 4px solid orange;
 	color: black;
 	height: 22px;
 }
 
-#menu li.active a {
+#menu_inner li.active a {
 	background-color: white;
 	border-bottom: 4px solid orange;
 	color: black;

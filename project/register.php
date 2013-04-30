@@ -5,7 +5,7 @@
 	
 	<form method="post" action="authenticate.php">
 		<div>
-			<table class="center">
+			<table class="center" cellpadding="3" cellspacing="0">
 				<tr>
 					<td class="column_label">First Name:</td>
 					<td><input class="column_field" type="text" name="firstname" /></td>
@@ -27,6 +27,7 @@
 					<td><input class="column_field" type="password" name="password" /></td>
 				</tr>
 			</table>
+			<br />
 			<div class="column_155 center">	
 				<input class="button" type="submit" value="Submit" />
 				<input class="button" type="reset" value="Clear" />

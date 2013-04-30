@@ -5,10 +5,9 @@
 	$query = "SELECT * FROM movies";
 	
 	if (!empty($_GET[PARAM_GENRE])) {
-		$filters = mysqli_query($connection, "SELECT * FROM categories WHERE CategoryName=".'"'.$_GET[PARAM_GENRE].'"');
-		$filter = mysqli_fetch_row($filters);
-		
-		$query = $query." WHERE MovieCategory=".$filter[CATEGORIES_ID];
+		if($_GET[PARAM_GENRE] > 0) {
+			$query = $query." WHERE MovieCategory=".$_GET[PARAM_GENRE];
+		}
 	}
 	
 	$movies = mysqli_query($connection, $query);
@@ -23,7 +22,7 @@
 		
 		echo "\t\t\t\t", '<div class="list_element">'.PHP_EOL;
 		echo "\t\t\t\t\t", '<div class="column_200 text_center">'.PHP_EOL;
-		echo "\t\t\t\t\t\t", '<img src="' . $movie[MOVIES_COVER] . '" alt_text="' . $movie[MOVIES_TITLE] . '" width="180" height="180" />' .PHP_EOL;
+		echo "\t\t\t\t\t\t", '<img src="' . $movie[MOVIES_COVER] . '" alt_text="' . $movie[MOVIES_TITLE] . '" width="100" height="150" />' .PHP_EOL;
 		echo "\t\t\t\t\t", '</div>'.PHP_EOL;
 		echo "\t\t\t\t\t", '<div class="column_750">'.PHP_EOL;
 		
