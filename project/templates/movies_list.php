@@ -49,9 +49,15 @@
 			if ($lowerBound != 0) {
 				echo '<a class="link_prev" href="'.$href_prev.'"><< Prev</a>'.PHP_EOL;
 			}
+			else {
+				echo '<span class="link_prev_disabled"><< Prev</span>'.PHP_EOL;
+			}
 			
 			if ($upperBound != count($movies)) {
 				echo '<a class="link_next" href="'.$href_next.'">Next >></a>'.PHP_EOL;
+			}
+			else {
+				echo '<span class="link_next_disabled">Next >></span>'.PHP_EOL;
 			}
 		?>
 	</div><br />
