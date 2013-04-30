@@ -69,6 +69,11 @@ p {
 	margin-left: auto; margin-right: auto;
 }
 
+.font_disclaimer {
+	font-size: 10px;
+	color: #666666;
+}
+
 .column_155 {
 	width: 155px;
 }

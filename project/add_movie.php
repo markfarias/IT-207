@@ -51,6 +51,7 @@
 						$option .= '<option value="' . $category['CategoryId'] . '">' . $category['CategoryName'] . '</option>';
 					}
 					echo $option;
+					mysqli_free_result($categories);
 				?>
 				</select>
 			</td>
@@ -66,6 +67,7 @@
 						$option .= '<option value="' . $relcompany['CompanyId'] . '">' . $relcompany['CompanyName'] . '</option>';
 					}
 					echo $option;
+					mysqli_free_result($relcompanies);
 				?>
 				</select>
 			</td>
@@ -79,7 +81,11 @@
 		<tr>
 			<td>Shipping Rate:</td><td>$<input type="text" name="Shipping" maxlength="5" size="7" /></td>
 		<tr>
-			<td>Cover Image:</td><td><input name="CoverImage" type="file" />&nbsp;</td>
+			<td valign="top">Cover Image:</td>
+			<td>
+				<input name="CoverImage" type="file" /><br />
+				<span class="font_disclaimer">(Types allowed: jpeg / jpg / png / gif | Max size: 75KB)</span>
+			</td>
 		</tr>
 	</table>
 	<br />
