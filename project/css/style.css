@@ -69,6 +69,10 @@ p {
 	margin-left: auto; margin-right: auto;
 }
 
+.column_125 {
+	width: 125px;
+}
+
 .font_disclaimer {
 	font-size: 10px;
 	color: #666666;
@@ -80,10 +84,6 @@ p {
 
 .column_150 {
 	width: 150px;
-}
-
-.column_200 {
-	width: 200px;
 }
 
 .column_600 {
@@ -123,7 +123,7 @@ p {
 }
 
 .cover_image {
-	height: 180px; width: 180px;
+	height: 150px; width: 100px;
 }
 
 .link_horizontal {
@@ -142,6 +142,7 @@ p {
 }
 
 .list_element {
+	padding-bottom: 10px;
 	height: 150px; width: 900px;	
 }
 

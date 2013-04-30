@@ -26,10 +26,18 @@
 		<div id="header_outer">
 			<div id="header_inner">
 				<?php
+					define("ASCII_AND", '&#38;');
+					define("ASCII_QUESTION", '&#63;');
+					
+					define("HREF_FORMAT", '%s'.ASCII_QUESTION.'%s');
+					define("HREF_GET_PARAM", '%s&#61;%s');
+					
+					// Common parameters
 					define("PARAM_GENRE", "genre");
 					define("PARAM_SEARCH", "search");
 					define("PARAM_SORT", "sort");
 					
+					// Session variables
 					define("SESSION_USER", "user");
 					define("SESSION_USERS_NAME", "usersName");
 					define("SESSION_USER_ADMIN", "admin");
@@ -52,15 +60,15 @@
 					define("REVIEWS_DATE", 2);
 					define("REVIEWS_SCORE", 3);
 					define("REVIEWS_COMMENTS", 4);
-					
+	
 					if (empty($_SESSION[SESSION_USER])) {
 						echo '<p><a class="header_link" href="login.php">Log-In</a>&nbsp;|';
 						echo '<a class="header_link" href="register.php">Register</a></p>'.PHP_EOL;
 					}
 					else {
-						echo '<p>';
-						echo $_SESSION[SESSION_USERS_NAME], "&nbsp;|";
-						echo '<a class="header_link" href="logout.php">Log-Out</a></p>'.PHP_EOL;
+						echo '<p>Welcome, ', $_SESSION[SESSION_USERS_NAME], "&nbsp;|";
+						echo '<a class="header_link" href="logout.php">Log-Out</a>', "&nbsp;|".PHP_EOL;
+						echo '<a class="header_link" href="accountinfo.php">Account</a></p>'.PHP_EOL;
 					}
 				?>
 				<div>

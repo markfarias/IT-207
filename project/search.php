@@ -1,8 +1,6 @@
 <?php
 	include 'templates/header.php';
-	
-	define("HREF_VIEWMOVIE", 'view_movie.php&#63;MovieId&#61;%d'); 
-	
+		
 	$query = "SELECT * FROM movies WHERE ";
 				
 	if (empty($_GET[PARAM_SEARCH])) {
@@ -26,41 +24,12 @@
 		mysqli_free_result($fields);
 	}
 		
-	$movies = mysqli_query($connection, $query);
+	$result = mysqli_query($connection, $query);
+	$movies = mysqli_fetch_all($result);
 	
-	echo "\t\t\t", '<div class="list_view">'.PHP_EOL;
-	for ($index = 0; $index < mysqli_num_rows($movies); $index++) {
-		$movie = mysqli_fetch_row($movies);
-		$categories = mysqli_query($connection, "SELECT * FROM categories WHERE CategoryId=".$movie[MOVIES_CATEGORY]);
-		$category = mysqli_fetch_row($categories);
-		$movieRatings = mysqli_query($connection, "SELECT * FROM movieratings WHERE RatingId=".$movie[MOVIES_RATING]);
-		$movieRating = mysqli_fetch_row($movieRatings);
+	include 'templates/movies_list.php';
 		
-		echo "\t\t\t\t", '<div class="list_element">'.PHP_EOL;
-		echo "\t\t\t\t\t", '<div class="column_200 float_left">'.PHP_EOL;
-		echo "\t\t\t\t\t\t", '<img class="cover_image" src="' . $movie[MOVIES_COVER] . '" alt_text="' . $movie[MOVIES_TITLE] . '" />' .PHP_EOL;
-		echo "\t\t\t\t\t", '</div>'.PHP_EOL;
-		echo "\t\t\t\t\t", '<div class="column_700 float_left">'.PHP_EOL;
-		
-		// Movie Info
-		echo "\t\t\t\t\t\t", '<a href="', sprintf(HREF_VIEWMOVIE, $movie[MOVIES_ID]), '"><span class="movie_title">', $movie[MOVIES_TITLE], '</span></a><br />'.PHP_EOL;		
-		echo "\t\t\t\t\t\t", "Genre: ".$category[CATEGORIES_NAME]."<br />".PHP_EOL;
-		echo "\t\t\t\t\t\t", "Rating: ".$movieRating[MOVIERATINGS_NAME]."<br />".PHP_EOL;
-		
-		// Description
-		echo "\t\t\t\t\t\t", '<p>'.PHP_EOL;
-		echo "\t\t\t\t\t\t\t", "Description: ", $movie[MOVIES_DESC].PHP_EOL;
-		echo "\t\t\t\t\t\t", '</p>'.PHP_EOL;
-		echo "\t\t\t\t\t", '</div>'.PHP_EOL;
-		echo "\t\t\t\t", '</div>'.PHP_EOL;
-		echo "\t\t\t\t", '<div class="clear_floats"></div>'.PHP_EOL;
-		
-		mysqli_free_result($categories);
-		mysqli_free_result($movieRatings);
-	}
-	echo "\t\t\t", '</div>'.PHP_EOL;
-		
-	mysqli_free_result($movies);
+	mysqli_free_result($result);
 	
 	include 'templates/footer.php';
 ?>

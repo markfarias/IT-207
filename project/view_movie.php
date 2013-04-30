@@ -24,10 +24,10 @@
 	$releaseCompanies = mysqli_query($connection, "SELECT * FROM releasecompanies WHERE CompanyId=".$movie[MOVIES_COMPANY]);
 	$releaseCompany = mysqli_fetch_row($releaseCompanies);
 	
-	echo "\t\t\t", '<div class="list_view">'.PHP_EOL;
-	echo "\t\t\t\t", '<div class="list_element">'.PHP_EOL;
-	echo "\t\t\t\t\t", '<div class="column_200 float_left">'.PHP_EOL;
-	echo "\t\t\t\t\t\t", '<img src="' . $movie[MOVIES_COVER] . '" alt_text="' . $movie[MOVIES_TITLE] . '" width="100" height="150" />' .PHP_EOL;
+	echo "\t\t\t", '<div class="list_view center">'.PHP_EOL;
+	echo "\t\t\t\t", '<div class="list_element center">'.PHP_EOL;
+	echo "\t\t\t\t\t", '<div class="column_125 float_left">'.PHP_EOL;
+	echo "\t\t\t\t\t\t", '<img class="cover_image" src="' . $movie[MOVIES_COVER] . '" alt_text="' . $movie[MOVIES_TITLE] . '" />' .PHP_EOL;
 	echo "\t\t\t\t\t", '</div>'.PHP_EOL;
 	echo "\t\t\t\t\t", '<div class="column_700 float_left">'.PHP_EOL;
 		
