@@ -61,9 +61,9 @@
 			// The file is good, proceed to upload and save
 			$filepath = "images/covers/" . $_FILES[PARAM_COVER]["name"];
 			$finalquery = sprintf($insertmoviequery, 
-				$_POST[PARAM_MOVIENAME], $_POST[PARAM_CATEGORY],
-				$_POST[PARAM_RELCOMPANY], $_POST[PARAM_RELYEAR],
-				$_POST[PARAM_DESCRIPTION], $_POST[PARAM_RATING],
+				mysqli_real_escape_string($connection, $_POST[PARAM_MOVIENAME]), $_POST[PARAM_CATEGORY],
+				$_POST[PARAM_RELCOMPANY], mysqli_real_escape_string($connection, $_POST[PARAM_RELYEAR]),
+				mysqli_real_escape_string($connection, $_POST[PARAM_DESCRIPTION]), $_POST[PARAM_RATING],
 				$_POST[PARAM_PRICE], $_POST[PARAM_SHIPPING],
 				$filepath);
 			
