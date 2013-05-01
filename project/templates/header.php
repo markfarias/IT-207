@@ -8,7 +8,6 @@
 <?php
 	session_start();
 	//$connection = @mysqli_connect("helios.ite.gmu.edu", "user", "password", "mfarias");
-	//$connection = mysqli_connect("localhost", "rkime", "Ad7Mm12345!#", "mfarias");
 	$connection = mysqli_connect("localhost", "mfarias", "GoldRush?49", "mfarias", "3306");
 	
 	if(mysqli_connect_errno($connection)) {
@@ -27,13 +26,15 @@
 			<div id="header_inner">
 				<?php
 					define("ASCII_AND", '&#38;');
+					define("ASCII_EQUAL", '&#61;');
 					define("ASCII_QUESTION", '&#63;');
 					
 					define("HREF_FORMAT", '%s'.ASCII_QUESTION.'%s');
-					define("HREF_GET_PARAM", '%s&#61;%s');
+					define("HREF_GET_PARAM", '%s'.ASCII_EQUAL.'%s');
 					
 					// Common parameters
 					define("PARAM_GENRE", "genre");
+					define("PARAM_MOVIE_ID", "MovieId");
 					define("PARAM_SEARCH", "search");
 					define("PARAM_SORT", "sort");
 					

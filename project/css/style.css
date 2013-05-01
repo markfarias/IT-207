@@ -143,19 +143,38 @@ p {
 	padding-left: 5px;
 }
 
+.link_button,
+.link_button:link,
+.link_button:active,
+.link_button:visited,
+.link_button:hover {
+	background-color: red;
+	color: white;
+	padding: 4px 8px 4px 8px;
+	text-decoration: none!important;
+}
+
 .link_horizontal {
 	padding-left: 15px;
 	text-decoration: none;
 }
 
-.link_next {
+.link_next,
+.link_next_disabled {
 	float: right;
 	padding-right: 25px;
 }
 
-.link_prev {
+.link_prev,
+.link_prev_disabled {
 	float: left;
 	padding-left: 25px;
+}
+
+.link_next_disabled,
+.link_prev_disabled {
+	color: black;
+	font-family: Verdana;
 }
 
 .list_element {
