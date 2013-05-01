@@ -19,11 +19,12 @@
 		if (!empty($_POST[PARAM_EMAIL]) && !empty($_POST[PARAM_FIRSTNAME]) && !empty($_POST[PARAM_LASTNAME]) && 
 			!empty($_POST[PARAM_PASSWORD]) && !empty($_POST[PARAM_USERNAME])) {
 			mysqli_query($connection, sprintf($insertquery, $_POST[PARAM_USERNAME], $_POST[PARAM_FIRSTNAME], $_POST[PARAM_LASTNAME], $_POST[PARAM_EMAIL], $_POST[PARAM_PASSWORD]));
-			
-			echo "Successfully Registered".PHP_EOL;
+			// Redirect to the Login page
+			header('Location: login.php?LoginMsg=3');
 		}
 		else {
-			echo "You must enter a value in each field. Click your browser's Back button to return to the form.".PHP_EOL;
+			// Redirect back to the registration page
+			header('Location: register.php?RegisterMsg=1');
 		}
 	}
 	else if (!empty($_POST[PARAM_UPDATE_INFO])) {
@@ -31,8 +32,9 @@
 		mysqli_query($connection, sprintf($updatequery, "LastName", $_POST[PARAM_LASTNAME], $_SESSION[SESSION_USER]));
 		mysqli_query($connection, sprintf($updatequery, "EmailAddress", $_POST[PARAM_EMAIL], $_SESSION[SESSION_USER]));
 		mysqli_query($connection, sprintf($updatequery, "Password", $_POST[PARAM_PASSWORD], $_SESSION[SESSION_USER]));
-		
-		echo "Update successful.".PHP_EOL;
+		$_SESSION[SESSION_USERS_NAME] = $_POST[PARAM_FIRSTNAME] . " " . $_POST[PARAM_LASTNAME];
+		// Redirect back to the Account Info page
+		header('Location: accountinfo.php?Update=1');
 	}
 	else {		
 		if (!empty($_POST[PARAM_PASSWORD]) && !empty($_POST[PARAM_USERNAME])) {
@@ -50,11 +52,12 @@
 				header('Location: index.php');
 			}
 			else {
-				header('Location: login.php?LoginError=1');
+				// Redirect back to the Login page to show an invalid account error
+				header('Location: login.php?LoginMsg=1');
 			}
 		}
 		else {
-			header('Location: login.php?LoginError=2');
+			header('Location: login.php?LoginMsg=2');
 		}	
 	}
 	

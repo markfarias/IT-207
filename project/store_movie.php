@@ -33,8 +33,9 @@
 		!is_uploaded_file($_FILES[PARAM_COVER]['tmp_name'])) {
 		
 		// Set the message to the user
-		$outputMessage .= '<p>You must enter all of the data for a movie. Please go back and re-enter the details.</p>';
-		$outputMessage .= '<p><a href="add_movie.php">Go Back</a></p>';
+		//$outputMessage .= '<p>You must enter all of the data for a movie. Please go back and re-enter the details.</p>';
+		//$outputMessage .= '<p><a href="add_movie.php">Go Back</a></p>';
+		header('Location: add_movie.php?Error=1');
 	}
 	else {
 		// Check for an acceptable file type
@@ -44,18 +45,21 @@
 			($_FILES[PARAM_COVER]["type"] != "image/gif"))) {
 			
 			// Set the message to the user
-			$outputMessage .= '<p>Your cover file is not the correct type(jpeg, jpg, png, or gif). Please go back and try again.</p>';
-			$outputMessage .= '<p><a href="add_movie.php">Go Back</a></p>';
+			//$outputMessage .= '<p>Your cover file is not the correct type(jpeg, jpg, png, or gif). Please go back and try again.</p>';
+			//$outputMessage .= '<p><a href="add_movie.php">Go Back</a></p>';
+			header('Location: add_movie.php?Error=2');
 		}
 		elseif($_FILES[PARAM_COVER]["size"] > 75000) {
 			// Set the message to the user
-			$outputMessage .= '<p>Your cover file is too big (exceeds 75Kb). Please go back and try again.</p>';
-			$outputMessage .= '<p><a href="add_movie.php">Go Back</a></p>';
+			//$outputMessage .= '<p>Your cover file is too big (exceeds 75Kb). Please go back and try again.</p>';
+			//$outputMessage .= '<p><a href="add_movie.php">Go Back</a></p>';
+			header('Location: add_movie.php?Error=3');
 		}
 		elseif(file_exists("images/covers/" . $_FILES[PARAM_COVER]["name"])) {
 			// Set the message to the user
-			$outputMessage .= '<p>A file with the same name was already uploaded. Please go back and try again.</p>';
-			$outputMessage .= '<p><a href="add_movie.php">Go Back</a></p>';
+			//$outputMessage .= '<p>A file with the same name was already uploaded. Please go back and try again.</p>';
+			//$outputMessage .= '<p><a href="add_movie.php">Go Back</a></p>';
+			header('Location: add_movie.php?Error=4');
 		}
 		else {
 			// The file is good, proceed to upload and save

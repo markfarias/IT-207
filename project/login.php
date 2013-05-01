@@ -1,24 +1,28 @@
 <?php
 	include 'templates/header.php';
 ?>
-	<form method="post" action="authenticate.php">
-		<div class="center error" style="margin-top: 20px; width: 500px; text-align: center">
-			<?php
-				if(!empty($_GET["LoginError"])) {
-					switch($_GET["LoginError"]) {
-						case "1":
-							echo "Username or password was invalid. Try again.";
-							break;
-						case "2":
-							echo "You must enter values for Username and Password. Try again.";
-							break;
-						default:
-							echo "";
-					}
+	<div class="center error" style="margin-top: 20px; width: 500px; text-align: center">
+		<?php
+			if(!empty($_GET["LoginMsg"])) {
+				switch($_GET["LoginMsg"]) {
+					case "1":
+						echo "Username or password was invalid. Try again.";
+						break;
+					case "2":
+						echo "You must enter values for Username and Password. Try again.";
+						break;
+					case "3":
+						echo "Account Created. Login below.";
+						break;
+					default:
+						echo "";
 				}
-			?>
-		</div>
-		<div id="login" class="center">
+			}
+		?>
+	</div>
+	<form method="post" action="authenticate.php">
+		
+		<div id="dialog_entry" class="center" style="width: 500px">
 			<div class="row_solid_background">
 				<p class="font_label view">
 					Welcome to the Movie Room. Please login below to contribute to the reviews for our library of movie selections. 

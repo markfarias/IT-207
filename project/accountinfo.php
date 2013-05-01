@@ -6,36 +6,63 @@
 	$results = mysqli_query($connection, $query);
 	$user = mysqli_fetch_row($results);
 ?>
-			<h1>Account Information</h1>
-			<div class="view">
-				<form method="post" action="authenticate.php">
-					<div>
-						<table class="center">
-							<tr>
-								<td class="column_label">First Name:</td>
-								<td><input class="column_field" type="text" name="firstname" value="<?php echo $user[1]; ?>" /></td>
-							</tr>
-							<tr>
-								<td class="column_label">Last Name:</td>
-								<td><input class="column_field" type="text" name="lastname" value="<?php echo $user[2]; ?>" /></td>
-							</tr>
-							<tr>
-								<td class="column_label">Email:</td>
-								<td><input class="column_field" type="text" name="email" value="<?php echo $user[3]; ?>" /></td>
-							</tr>
-							<tr>
-								<td class="column_label">Password:</td>
-								<td><input class="column_field" type="password" name="password" value="<?php echo $user[5]; ?>" /></td>
-							</tr>
-						</table>
-						<div class="column_155 center">	
-							<input class="button" type="submit" value="Submit" />
-							<input class="button" type="reset" value="Clear" />
-							<input type="hidden" name="updateinfo" value="Yes" />
-						</div>
-					</div>
-				</form>
+	<div class="center feedback" style="margin-top: 20px; width: 500px; text-align: center">
+		<?php
+			if(!empty($_GET["Update"])) {
+				echo "Update successful!";
+			}
+		?>
+	</div>
+	<form method="post" action="authenticate.php">
+		<div id="dialog_entry" class="center" style="width: 600px">
+			<div class="row_solid_background">
+				<p class="font_label view">
+					Account details. The following is the information we have on record for your account. If any of the information is incorrect, please update 
+					it below and click Submit to save your record.
+				</p>
 			</div>
+			<div style="margin-top: 5px;" class="border_grey center">
+				<div style="float:left; width: 150px; text-align:center">
+					<img src="images/AccountInfo.png" width="100px" height="100px" />
+				</div>
+				<div style="float:left; width: 450px">
+					<table cellspacing="0" cellpadding="3" width="100%">
+						<tr>
+							<td width="150px"><h2>First Name:</h2></td>
+							<td>
+								<input class="column_field" type="text" name="FirstName" value="<?php echo $user[1]; ?>" />
+							</td>
+						</tr>
+						<tr>
+							<td><h2>Last Name:</h2></td>
+							<td>
+								<input class="column_field" type="text" name="LastName" value="<?php echo $user[2]; ?>" />
+							</td>
+						</tr>
+						<tr>
+							<td><h2>Email:</h2></td>
+							<td><input class="column_field" type="text" name="email" value="<?php echo $user[3]; ?>" /></td>
+						</tr>
+						<tr>
+							<td><h2>Password:</h2></td>
+							<td><input class="column_field" type="password" name="password" value="<?php echo $user[5]; ?>" /></td>
+						</tr>
+					</table>
+				</div>
+				<div class="clear_floats"></div>
+			</div>
+			<div style="margin-top: 5px; text-align:right; width: 100%; padding-bottom: 10px">
+				<div style="float: right; margin-right: 5px">
+					<input class="button" type="submit" value="Submit" />
+				</div>
+				<div style="float: right; margin-right: 5px">
+					<input class="button" type="reset" value="Clear" />
+				</div>
+				<div class="clear_floats"></div>
+				<input type="hidden" name="updateinfo" value="Yes" />
+			</div>
+		</div>
+	</form>
 <?php
 	mysqli_free_result($results);
 	
