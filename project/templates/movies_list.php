@@ -24,10 +24,15 @@
 			$prevUpperBound = $upperBound - ($upperBound % MAX_ITEMS);
 		}
 	}
-	else if ($upperBound + MAX_ITEMS >= count($movies)) {
-		$nextUpperBound = count($movies);
+	else {
+		if ($upperBound > count($movies)) {
+			$upperBound = count($movies);
+		}
+		
+		if ($upperBound + MAX_ITEMS >= count($movies)) {
+			$nextUpperBound = count($movies);
+		}
 	}
-	
 	// Constructing HREF used by the Next and Prev links
 	$href_next = $_SERVER['SCRIPT_NAME'].ASCII_QUESTION.sprintf(HREF_GET_PARAM, PARAM_LOWER_BOUND, $lowerBound + MAX_ITEMS).ASCII_AND.sprintf(HREF_GET_PARAM, PARAM_UPPER_BOUND, $nextUpperBound);
 	$href_prev = $_SERVER['SCRIPT_NAME'].ASCII_QUESTION.sprintf(HREF_GET_PARAM, PARAM_LOWER_BOUND, $lowerBound - MAX_ITEMS).ASCII_AND.sprintf(HREF_GET_PARAM, PARAM_UPPER_BOUND, $prevUpperBound);
