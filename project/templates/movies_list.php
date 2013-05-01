@@ -49,23 +49,32 @@
 		}
 	}
 ?>
-	<div>
+	<div class="text_center">
 		<?php
 			if ($lowerBound != 0) {
-				echo '<a class="link_prev" href="'.$href_prev.'"><< Prev</a>'.PHP_EOL;
+				echo '<a href="'.$href_prev.'"><img class="link_prev" src="images/prev.png" alt_text="Previous" /></a>'.PHP_EOL;
 			}
 			else {
-				echo '<span class="link_prev_disabled"><< Prev</span>'.PHP_EOL;
+				echo '<img class="link_prev disabled" src="images/prev.png" alt_text="Previous" />'.PHP_EOL;
+			}
+			
+			if (count($movies) != 0) {
+				if ($lowerBound + 1 == count($movies)) {
+					echo '<span class="font_size_14">'.($lowerBound + 1)." of ".count($movies).'</span>'.PHP_EOL;
+				}
+				else {
+					echo '<span class="font_size_14">'.($lowerBound + 1)." - ".$upperBound." of ".count($movies).'</span>'.PHP_EOL;
+				}
 			}
 			
 			if ($upperBound != count($movies)) {
-				echo '<a class="link_next" href="'.$href_next.'">Next >></a>'.PHP_EOL;
+				echo '<a href="'.$href_next.'"><img class="link_next" src="images/next.png" alt_text="Next" /></a>'.PHP_EOL;
 			}
 			else {
-				echo '<span class="link_next_disabled">Next >></span>'.PHP_EOL;
+				echo '<img class="link_next disabled" src="images/next.png" alt_text="Next" />'.PHP_EOL;
 			}
 		?>
-	</div><br />
+	</div><br /><br />
 	
 	<div class="list_view center">
 		<?php
