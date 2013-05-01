@@ -16,7 +16,7 @@
 		$nextUpperBound = $upperBound + MAX_ITEMS;
 		$prevUpperBound = $upperBound - MAX_ITEMS;
 		
-		if ($upperBound + MAX_ITEMS > count($movies)) {
+		if ($upperBound + MAX_ITEMS >= count($movies)) {
 			$nextUpperBound = count($movies);
 		}
 		
@@ -24,8 +24,8 @@
 			$prevUpperBound = $upperBound - ($upperBound % MAX_ITEMS);
 		}
 	}
-	else if ($upperBound >= count($movies)) {
-		$upperBound = count($movies);
+	else if ($upperBound + MAX_ITEMS >= count($movies)) {
+		$nextUpperBound = count($movies);
 	}
 	
 	// Constructing HREF used by the Next and Prev links
