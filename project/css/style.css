@@ -10,16 +10,17 @@ body {
 	font-family: sans-serif;
 	font-size: 12px;
 	height: 100%;
+	margin: 0px;
 }
 
-table
+table.blue
 {
 	border-style: solid;
 	border-width: 1px;
 	border-color: #000099;
 }
 
-td
+td.blue
 {
 	border-bottom-style: dotted;
 	border-bottom-width: 1px;
@@ -65,17 +66,19 @@ p {
 	width: 75px;
 }
 
+.border_grey {
+	border-bottom-style: dotted;
+	border-bottom-width: 1px;
+	border-bottom-color: #666666;
+	padding-bottom: 5px;
+}
+
 .center {
 	margin-left: auto; margin-right: auto;
 }
 
 .column_125 {
 	width: 125px;
-}
-
-.font_disclaimer {
-	font-size: 10px;
-	color: #666666;
 }
 
 .column_155 {
@@ -99,11 +102,20 @@ p {
 }
 
 .column_field {
-	width: 200px;
+	width: 150px;
+}
+
+.cover_image {
+	height: 150px; width: 100px;
 }
 
 .clear_floats {
 	clear: both;
+}
+
+.error {
+	font-weight: bold;
+	color: #CC0000;
 }
 
 .float_left {
@@ -114,16 +126,21 @@ p {
 	float: right;
 }
 
+.font_disclaimer {
+	font-size: 10px;
+	color: #666666;
+}
+
+.font_label {
+	font-family: 'Segoe UI', Verdana;
+}
+
+.font_label_bold {
+	font-weight: bold;
+}
+
 .header_link {
 	padding-left: 5px;
-}
-
-.text_align_right {
-	text-align: right;
-}
-
-.cover_image {
-	height: 150px; width: 100px;
 }
 
 .link_horizontal {
@@ -158,8 +175,18 @@ p {
 }
 
 .movie_title {
-	font-size: 32px;
+	font-size: 24px;
 	font-weight: bold;
+}
+
+.row_solid_background {
+	background-color: #002953;
+	color: #ffffff;
+	width: 100%;
+}
+
+.text_align_right {
+	text-align: right;
 }
 
 .text_center {
@@ -176,7 +203,7 @@ p {
 	height: 100%; width: 100%;
 	border-bottom-style: dotted;
 	border-bottom-width: 1px;
-	border-bottom-color: #cccccc;
+	border-bottom-color: #002953;
 }
 
 #content_inner {
@@ -186,8 +213,15 @@ p {
 	padding-bottom: 10px;
 }
 
+#login {
+	border-style: solid;
+	border-width: 2px;
+	border-color: #002953;
+	width: 500px;
+}
+
 #menu_outer {
-	background-color: slategray;
+	background-color: #002953;
 	width: 100%;
 }
 
@@ -220,7 +254,7 @@ p {
 
 /* CSS for Horizontal Menu */
 #menu_inner ul {
-	background-color: slategray;
+	background-color: #002953;
 	display: inline-block;
 	font-size: 12px; font-weight: bold;
 	height: 30px; width: auto;
@@ -240,18 +274,18 @@ p {
 	font-weight: bold;
 	color: white;
 	text-decoration: none;
-	padding: 8px 20px 0 20px;
+	padding: 8px 15px 0 15px;
 }
 	
 #menu_inner li a:hover {	
-	background-color: white;
+	background-color: #6685C2;
 	border-bottom: 4px solid orange;
 	color: black;
 	height: 22px;
 }
 
 #menu_inner li.active a {
-	background-color: white;
+	background-color: #6685C2;
 	border-bottom: 4px solid orange;
 	color: black;
 	height: 22px;

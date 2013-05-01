@@ -50,11 +50,11 @@
 				header('Location: index.php');
 			}
 			else {
-				echo "Log-in failed.".PHP_EOL;
+				header('Location: login.php?LoginError=1');
 			}
 		}
 		else {
-			echo "You must enter a value in each field. Click your browser's Back button to return to the form.".PHP_EOL;
+			header('Location: login.php?LoginError=2');
 		}	
 	}
 	
