@@ -177,13 +177,11 @@ p {
 
 .link_next {
 	float: right;
-	padding-right: 25px;
 	height: 32px; width: 32px;
 }
 
 .link_prev {
 	float: left;
-	padding-left: 25px;
 	height: 32px; width: 32px;
 }
 
