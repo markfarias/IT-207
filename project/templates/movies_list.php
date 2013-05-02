@@ -80,9 +80,9 @@
 		<?php
 				for ($count = $lowerBound; $count < $upperBound; $count++) {
 				$movie = $movies[$count];
-				$categories = mysqli_query($connection, "SELECT * FROM categories WHERE CategoryId=".$movie[MOVIES_CATEGORY]);
+				$categories = mysqli_query($connection, "SELECT * FROM Categories WHERE CategoryId=".$movie[MOVIES_CATEGORY]);
 				$category = mysqli_fetch_row($categories);
-				$movieRatings = mysqli_query($connection, "SELECT * FROM movieratings WHERE RatingId=".$movie[MOVIES_RATING]);
+				$movieRatings = mysqli_query($connection, "SELECT * FROM MovieRatings WHERE RatingId=".$movie[MOVIES_RATING]);
 				$movieRating = mysqli_fetch_row($movieRatings);
 				
 				echo "\t\t\t\t", '<div class="list_element_movie center">'.PHP_EOL;

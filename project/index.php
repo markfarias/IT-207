@@ -17,7 +17,7 @@
 		return ($b[1] < $a[1]) ? -1 : 1;
 	}
 	
-	$query = "SELECT * FROM movies";
+	$query = "SELECT * FROM Movies";
 	$href_sort_ascending = sprintf(HREF_FORMAT, $_SERVER['SCRIPT_NAME'], sprintf(HREF_GET_PARAM, PARAM_SORT, "ascending"));
 	$href_sort_descending = sprintf(HREF_FORMAT, $_SERVER['SCRIPT_NAME'], sprintf(HREF_GET_PARAM, PARAM_SORT, "descending"));
 	

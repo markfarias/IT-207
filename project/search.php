@@ -1,13 +1,13 @@
 <?php
 	include 'templates/header.php';
 		
-	$query = "SELECT * FROM movies WHERE ";
+	$query = "SELECT * FROM Movies WHERE ";
 				
 	if (empty($_GET[PARAM_SEARCH])) {
-		$query = "SELECT * FROM movies";
+		$query = "SELECT * FROM Movies";
 	}
 	else {
-		$fields = mysqli_query($connection, "SHOW COLUMNS FROM movies");
+		$fields = mysqli_query($connection, "SHOW COLUMNS FROM Movies");
 		$searchTerm = trim($_GET[PARAM_SEARCH]);
 			
 		for ($index = 0; $index < mysqli_num_rows($fields); $index++) {

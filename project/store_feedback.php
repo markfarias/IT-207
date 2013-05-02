@@ -15,7 +15,7 @@
 	}
 	else {
 		$currDate = getDate();
-		$query = 'INSERT INTO moviereviews VALUES (NULL, %d, "'.sprintf(FORMAT_DATE, $currDate["year"], $currDate["mon"], $currDate["mday"]).'", %d, "%s")';
+		$query = 'INSERT INTO MovieReviews VALUES (NULL, %d, "'.sprintf(FORMAT_DATE, $currDate["year"], $currDate["mon"], $currDate["mday"]).'", %d, "%s")';
 		$result = mysqli_query($connection, sprintf($query, $_POST[PARAM_MOVIE_ID], $_POST[PARAM_RATING], $_POST[PARAM_FEEDBACK]));
 		
 		// Check for errors or no results

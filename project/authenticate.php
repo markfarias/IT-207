@@ -10,9 +10,9 @@
 	define("PARAM_UPDATE_INFO", "updateinfo");
 	define("PARAM_ADMIN", "Administrator");
 	
-	$insertquery = "INSERT INTO users VALUES ('%s', '%s', '%s', '%s', 0, '%s')";
-	$selectquery = "SELECT * FROM users WHERE UserName='%s' AND Password='%s'";
-	$updatequery = "UPDATE users SET %s='%s' WHERE UserName='%s'";
+	$insertquery = "INSERT INTO Users VALUES ('%s', '%s', '%s', '%s', 0, '%s')";
+	$selectquery = "SELECT * FROM Users WHERE UserName='%s' AND Password='%s'";
+	$updatequery = "UPDATE Users SET %s='%s' WHERE UserName='%s'";
 		
 	if (!empty($_POST[PARAM_REGISTRATION])) {
 		

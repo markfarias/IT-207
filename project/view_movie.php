@@ -13,13 +13,13 @@
 	
 	$movieId = $_GET[PARAM_MOVIE_ID];
 	
-	$movies = mysqli_query($connection, "SELECT * FROM movies WHERE MovieId=".$movieId);
+	$movies = mysqli_query($connection, "SELECT * FROM Movies WHERE MovieId=".$movieId);
 	$movie = mysqli_fetch_row($movies);
-	$categories = mysqli_query($connection, "SELECT * FROM categories WHERE CategoryId=".$movie[MOVIES_CATEGORY]);
+	$categories = mysqli_query($connection, "SELECT * FROM Categories WHERE CategoryId=".$movie[MOVIES_CATEGORY]);
 	$category = mysqli_fetch_row($categories);
-	$movieRatings = mysqli_query($connection, "SELECT * FROM movieratings WHERE RatingId=".$movie[MOVIES_RATING]);
+	$movieRatings = mysqli_query($connection, "SELECT * FROM MovieRatings WHERE RatingId=".$movie[MOVIES_RATING]);
 	$movieRating = mysqli_fetch_row($movieRatings);
-	$releaseCompanies = mysqli_query($connection, "SELECT * FROM releasecompanies WHERE CompanyId=".$movie[MOVIES_COMPANY]);
+	$releaseCompanies = mysqli_query($connection, "SELECT * FROM ReleaseCompanies WHERE CompanyId=".$movie[MOVIES_COMPANY]);
 	$releaseCompany = mysqli_fetch_row($releaseCompanies);
 	
 	echo "\t\t\t", '<div class="list_view">'.PHP_EOL;
@@ -60,7 +60,7 @@
 	echo "\t\t\t", '<div class="list_view">'.PHP_EOL;
 	echo "\t\t\t\t", '<h1>User Reviews</h1>'.PHP_EOL;
 	
-	$reviews = mysqli_query($connection, "SELECT * FROM moviereviews WHERE MovieId=".$movieId);
+	$reviews = mysqli_query($connection, "SELECT * FROM MovieReviews WHERE MovieId=".$movieId);
 	
 	for ($index = 0; $index < mysqli_num_rows($reviews); $index++) {
 		$review = mysqli_fetch_row($reviews);

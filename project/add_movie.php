@@ -11,9 +11,9 @@
 	define("PARAM_SHIPPING", "Shipping");
 	define("PARAM_COVER", "CoverImage");
 	
-	$selectcategoriesquery = "SELECT * FROM categories";
-	$selectratingsquery = "SELECT * FROM movieratings";
-	$selectrelcompanies = "SELECT * FROM releasecompanies";
+	$selectcategoriesquery = "SELECT * FROM Categories";
+	$selectratingsquery = "SELECT * FROM MovieRatings";
+	$selectrelcompanies = "SELECT * FROM ReleaseCompanies";
 ?>
 	<div class="center error" style="margin-top: 20px; width: 700px; text-align: center">
 		<?php

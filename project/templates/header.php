@@ -7,12 +7,12 @@
 -->
 <?php
 	session_start();
-	//$connection = @mysqli_connect("helios.ite.gmu.edu", "user", "password", "mfarias");
-	$connection = mysqli_connect("localhost", "mfarias", "GoldRush?49", "mfarias", "3306");
+	$connection = @mysqli_connect("helios.ite.gmu.edu", "mfarias", "GoldRush?49", "mfarias");
 	
 	if(mysqli_connect_errno($connection)) {
 		header('Location: ./error.html');
 	}
+	echo phpinfo();
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -113,7 +113,7 @@
 						}
 						// Set the category items
 						$menu = "";
-						$categories = mysqli_query($connection, "SELECT * FROM categories");
+						$categories = mysqli_query($connection, "SELECT * FROM Categories");
 						while($category = mysqli_fetch_row($categories)) {
 							if(!empty($_GET[PARAM_GENRE]) && ($_GET[PARAM_GENRE] == $category[CATEGORIES_ID])) {
 								$menu .= '<li class="active"><a href="index.php&#63;genre&#61;' . $category[CATEGORIES_ID] . '">' . $category[CATEGORIES_NAME] . '</a></li>'.PHP_EOL;

@@ -14,7 +14,7 @@
 	define("PARAM_COVER", "CoverImage");
 	
 	// Initalize the insert query
-	$insertmoviequery = "INSERT INTO movies(MovieName, MovieCategory, ReleaseCompany, ReleaseYear, Description, Rating, Price, ShippingRate, CoverImage) ";
+	$insertmoviequery = "INSERT INTO Movies(MovieName, MovieCategory, ReleaseCompany, ReleaseYear, Description, Rating, Price, ShippingRate, CoverImage) ";
 	$insertmoviequery .= "VALUES ('%s', %u, %u, '%s', '%s', %u, %.2f, %.2f, '%s')";
 	
 	// If we have values, insert the new movie
