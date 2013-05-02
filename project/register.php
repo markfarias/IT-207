@@ -17,10 +17,10 @@
 				</p>
 			</div>
 			<div style="margin-top: 5px;" class="border_grey center">
-				<div style="float:left; width: 150px; text-align:center">
+				<div class="float_left" style="width: 150px; text-align:center">
 					<img src="images/AddAccount.png" width="100px" height="100px" />
 				</div>
-				<div style="float:left; width: 450px">
+				<div class="float_left" style="width: 450px">
 					<table cellspacing="0" cellpadding="3" width="100%">
 						<tr>
 							<td width="150px"><h2>First Name:</h2></td>
@@ -51,10 +51,10 @@
 				<div class="clear_floats"></div>
 			</div>
 			<div style="margin-top: 5px; text-align:right; width: 100%; padding-bottom: 10px">
-				<div style="float: right; margin-right: 5px">
+				<div class="float_right" style="margin-right: 5px">
 					<input class="button" type="submit" value="Submit" />
 				</div>
-				<div style="float: right; margin-right: 5px">
+				<div class="float_right" style="margin-right: 5px">
 					<input class="button" type="reset" value="Clear" />
 				</div>
 				<div class="clear_floats"></div>

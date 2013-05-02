@@ -120,7 +120,7 @@
 				</div>
 			</div>
 			<div style="margin-top: 5px; text-align:right; width: 100%; padding-bottom: 10px">
-				<div style="float: right; margin-right: 5px">
+				<div class="float_right" style="margin-right: 5px">
 					<input type="submit" value="Add Movie" />
 				</div>
 				<div class="clear_floats"></div>

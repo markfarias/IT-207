@@ -43,7 +43,16 @@ h2 {
 	font-weight: normal;
 	color: #FF7519;
 	letter-spacing: 2px;
-	margin: 0px;
+	margin-top: 0px;
+}
+
+h3 {
+	font-family: 'Segoe UI Light', Verdana;
+	font-size: 54px;
+	font-weight: normal;
+	color: #660066;
+	margin: 0px !important;
+	padding: 0px !important;
 }
 
 a:link, a:active, a:visited {
@@ -55,6 +64,18 @@ a:link, a:active, a:visited {
 a:hover {
 	color: #AD5C5C;
 	text-decoration: none;
+}
+
+hr
+{
+	border-top-style: dotted;
+	border-top-width: 2px;
+	border-top-color: #800000;
+	border-left-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 p {
@@ -92,6 +113,14 @@ p {
 
 .column_150 {
 	width: 150px;
+}
+
+.column_300 {
+	width: 300px;
+}
+
+.column_500 {
+	width: 500px;
 }
 
 .column_600 {
@@ -178,7 +207,7 @@ p {
 .link_button:active,
 .link_button:visited,
 .link_button:hover {
-	background-color: red;
+	background-color: #800000;
 	color: white;
 	padding: 4px 8px 4px 8px;
 	text-decoration: none!important;
@@ -191,40 +220,58 @@ p {
 
 .link_next {
 	float: right;
-	height: 32px; width: 32px;
+	height: 32px; 
+	width: 32px;
 }
 
 .link_prev {
 	float: left;
-	height: 32px; width: 32px;
+	height: 32px; 
+	width: 32px;
 }
 
 .list_element {
 	padding-bottom: 10px;
-	height: 150px; width: 900px;	
+	width: 800px;	
+}
+
+.list_element_movie {
+	padding-bottom: 20px;
+	width: 900px;
 }
 
 .list_element_feedback {
 	padding-top: 5px;
-	height: 75px; width: 900px;
+	width: 100%;
 }
 
 .list_view {
 	padding: 10px;
-	margin-left: auto; margin-right: auto;
-	width: 950px;
+	width: 850px;
+}
+
+.list_view_movies {
+	padding: 10px;
+	width: 925px;
 }
 
 .movie_title {
 	font-size: 24px;
 	font-weight: bold;
 	font-family: 'Segoe UI Light', Verdana;
+	color: #336699;
 }
 
 .row_solid_background {
 	background-color: #002953;
 	color: #ffffff;
 	width: 100%;
+}
+
+.stars {
+	letter-spacing: 1.5px;
+	color: #E6B800;
+	font-size: 24px;
 }
 
 .text_align_right {
@@ -235,6 +282,11 @@ p {
 	text-align: center;
 }
 
+.username {
+	color: #336699;
+	font-size: 16px;
+}
+
 .view {
 	padding: 10px;
 }
@@ -243,13 +295,13 @@ p {
 	background-color: white;
 	margin-top: 4px;
 	height: 100%; width: 100%;
-	border-bottom-style: dotted;
-	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-width: 3px;
 	border-bottom-color: #002953;
 }
 
 #content_inner {
-	width: 900px;
+	width: 950px;
 	margin-left: auto; 
 	margin-right: auto;
 	padding-bottom: 10px;
@@ -266,10 +318,22 @@ p {
 	border-width: 2px;
 	border-color: #800000;
 	width: 600px;
+	margin-top: 20px;
 }
 
 #dialog_message {
 	padding: 25px;
+}
+
+#header_outer {
+	width: 100%;
+	text-align: right;
+}
+
+#header_inner {
+	margin-left: auto; 
+	margin-right: auto;
+	width: 950px;
 }
 
 #menu_outer {
@@ -283,25 +347,15 @@ p {
 	text-align: center;
 }
 
-#header_outer {
-	width: 100%;
-	text-align: right;
-}
-
-#header_inner {
-	margin-left: auto; 
-	margin-right: auto;
-	width: 1000px;
-}
-
-#banner {
-	float: left;
-}
-
-#search {
+#linksandsearch {
 	float: right;
 	margin-right: 5px;
-	margin-top: -30px;
+	margin-top: 0px;
+}
+
+#title {
+	float: left;
+	width: 400px;
 }
 
 /* CSS for Horizontal Menu */
@@ -331,14 +385,14 @@ p {
 	
 #menu_inner li a:hover {	
 	background-color: #6685C2;
-	border-bottom: 4px solid orange;
+	border-bottom: 4px solid #800000;
 	color: black;
-	height: 22px;
+	height: 21px;
 }
 
 #menu_inner li.active a {
 	background-color: #6685C2;
-	border-bottom: 4px solid orange;
+	border-bottom: 4px solid #800000;
 	color: black;
-	height: 22px;
+	height: 21px;
 }

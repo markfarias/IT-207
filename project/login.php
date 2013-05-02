@@ -31,10 +31,10 @@
 				</p>
 			</div>
 			<div style="margin-top: 5px;" class="border_grey center">
-				<div style="float:left; width: 150px; text-align:center">
+				<div class="float_left" style="width: 150px; text-align:center">
 					<img src="images/login.png" width="100px" height="100px" />
 				</div>
-				<div style="float:left; width: 350px">
+				<div class="float_left" style="width: 350px">
 					<table cellspacing="0" cellpadding="3" width="100%">
 						<tr>
 							<td align="right" width="25%">Username:</td>
@@ -56,10 +56,10 @@
 				<p><a href="register.php">Create a New Account</a></p>
 			</div>
 			<div style="margin-top: 5px; text-align:right; width: 100%; padding-bottom: 10px">
-				<div style="float: right; margin-right: 5px">
+				<div class="float_right" style="margin-right: 5px">
 					<input class="button" type="submit" value="Log-In" />
 				</div>
-				<div style="float: right; margin-right: 5px">
+				<div class="float_right" style="margin-right: 5px">
 					<input class="button" type="reset" value="Clear" />
 				</div>
 				<div class="clear_floats"></div>

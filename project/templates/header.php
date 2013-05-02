@@ -17,7 +17,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
-		<title>Movie Room</title>
+		<title>The Movie Room</title>
 		<link rel="stylesheet" href="./css/style.css" type="text/css" />
 		<link rel="icon" type="image/x-icon" href="favicon.ico"/>
 	</head>
@@ -61,26 +61,35 @@
 					define("REVIEWS_DATE", 2);
 					define("REVIEWS_SCORE", 3);
 					define("REVIEWS_COMMENTS", 4);
-	
+					
+					$links = "";
 					if (empty($_SESSION[SESSION_USER])) {
-						echo '<p><a class="header_link" href="login.php">Log-In</a>&nbsp;|';
-						echo '<a class="header_link" href="register.php">Register</a></p>'.PHP_EOL;
+						$links .= '<p><a class="header_link" href="login.php">Log-In</a>&nbsp;|';
+						$links .= '<a class="header_link" href="register.php">Register</a></p>';
 					}
 					else {
-						echo '<p>Welcome, ', $_SESSION[SESSION_USERS_NAME], "&nbsp;|";
-						echo '<a class="header_link" href="logout.php">Log-Out</a>', "&nbsp;|".PHP_EOL;
-						echo '<a class="header_link" href="accountinfo.php">Account</a></p>'.PHP_EOL;
+						$links .= '<p><span class="username">Welcome, '.$_SESSION[SESSION_USERS_NAME]. '</span>&nbsp;|';
+						$links .= '<a class="header_link" href="logout.php">Log-Out</a>&nbsp;|';
+						$links .= '<a class="header_link" href="accountinfo.php">Account</a></p>';
 					}
 				?>
 				<div>
-					<div id="banner">
-						<img src="images/banner.png" alt="Movie Room Banner" />
+					<div id="title">
+						<h3>The Movie Room</h3>
 					</div>
-					<div id="search">
-						<form method="get" action="search.php">
-							<input type="text" name="search" <?php if (!empty($_GET[PARAM_SEARCH])) { echo 'value="'.$_GET[PARAM_SEARCH].'"'; } ?>/>
-							<input class="button" type="submit" value="Search" />
-						</form>
+					<div id="linksandsearch">
+						<div>
+							<?php
+								echo $links;
+							?>
+						</div>
+						<div>
+							<form method="get" action="search.php">
+								<span>Movie Search:</span>&nbsp;
+								<input type="text" name="search" <?php if (!empty($_GET[PARAM_SEARCH])) { echo 'value="'.$_GET[PARAM_SEARCH].'"'; } ?>/>
+								<input class="button" type="submit" value="Search" />
+							</form>
+						</div>
 					</div>
 					<div class="clear_floats"></div>
 				</div>

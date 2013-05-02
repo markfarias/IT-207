@@ -52,10 +52,10 @@
 	<div class="text_center">
 		<?php
 			if ($lowerBound != 0) {
-				echo '<a href="'.$href_prev.'"><img class="link_prev" src="images/prev.png" alt_text="Previous" /></a>'.PHP_EOL;
+				echo '<a href="'.$href_prev.'"><img class="link_prev" src="images/prev.png" alt_text="Previous" border="0" /></a>'.PHP_EOL;
 			}
 			else {
-				echo '<img class="link_prev disabled" src="images/prev.png" alt_text="Previous" />'.PHP_EOL;
+				echo '<img class="link_prev disabled" src="images/prev.png" alt_text="Previous" border="0" />'.PHP_EOL;
 			}
 			
 			if (count($movies) != 0) {
@@ -68,15 +68,15 @@
 			}
 			
 			if ($upperBound != count($movies)) {
-				echo '<a href="'.$href_next.'"><img class="link_next" src="images/next.png" alt_text="Next" /></a>'.PHP_EOL;
+				echo '<a href="'.$href_next.'"><img class="link_next" src="images/next.png" alt_text="Next" border="0" /></a>'.PHP_EOL;
 			}
 			else {
-				echo '<img class="link_next disabled" src="images/next.png" alt_text="Next" />'.PHP_EOL;
+				echo '<img class="link_next disabled" src="images/next.png" alt_text="Next" border="0" />'.PHP_EOL;
 			}
 		?>
 	</div><br /><br />
 	
-	<div class="list_view center">
+	<div class="list_view_movies center">
 		<?php
 				for ($count = $lowerBound; $count < $upperBound; $count++) {
 				$movie = $movies[$count];
@@ -85,7 +85,7 @@
 				$movieRatings = mysqli_query($connection, "SELECT * FROM movieratings WHERE RatingId=".$movie[MOVIES_RATING]);
 				$movieRating = mysqli_fetch_row($movieRatings);
 				
-				echo "\t\t\t\t", '<div class="list_element center">'.PHP_EOL;
+				echo "\t\t\t\t", '<div class="list_element_movie center">'.PHP_EOL;
 				echo "\t\t\t\t\t", '<div class="column_125 float_left">'.PHP_EOL;
 				echo "\t\t\t\t\t\t", '<img class="cover_image" src="' . $movie[MOVIES_COVER] . '" alt_text="' . $movie[MOVIES_TITLE] . '" />' .PHP_EOL;
 				echo "\t\t\t\t\t", '</div>'.PHP_EOL;
@@ -101,8 +101,8 @@
 				echo "\t\t\t\t\t\t\t", "Description: ", $movie[MOVIES_DESC].PHP_EOL;
 				echo "\t\t\t\t\t\t", '</p>'.PHP_EOL;
 				echo "\t\t\t\t\t", '</div>'.PHP_EOL;
+				echo "\t\t\t\t\t", '<div class="clear_floats"></div>'.PHP_EOL;
 				echo "\t\t\t\t", '</div>'.PHP_EOL;
-				echo "\t\t\t\t", '<div class="clear_floats"></div>'.PHP_EOL;
 				
 				mysqli_free_result($categories);
 				mysqli_free_result($movieRatings);
