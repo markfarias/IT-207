@@ -1,6 +1,9 @@
 <?php
 	include 'templates/header.php';
 	
+	/*
+	 Comparison function for ascending sort.
+	 */
 	function cmp_ascending($a, $b) {
 		if ($a[1] == $b[1]) {
 			return 0;
@@ -9,12 +12,38 @@
 		return ($a[1] < $b[1]) ? -1 : 1;
 	}
 	
+	/*
+	 Comparision function for descending sort.
+	 */
 	function cmp_descending($a, $b) {
 		if ($a[1] == $b[1]) {
 			return 0;
 		}
 		
 		return ($b[1] < $a[1]) ? -1 : 1;
+	}
+	
+	/*
+	 Constructs an array from the SQL query results.
+	 @param connection - MYSQLI connection object.
+	 @param query - SQL search query.
+	 @return - Array of results.
+	 */
+	function fetch_array($connection, $query) {
+		$result = mysqli_query($connection, $query);
+		$row = mysqli_fetch_array($result, MYSQLI_NUM);
+		
+		do {
+			if ($row != NULL) {
+				$rows[] = $row;
+			}
+			
+			$row = mysqli_fetch_array($result, MYSQLI_NUM);
+		} while($row);
+		
+		mysqli_free_result($result);
+		
+		return $rows;
 	}
 	
 	$query = "SELECT * FROM Movies";
@@ -30,8 +59,7 @@
 		}
 	}
 	
-	$result = mysqli_query($connection, $query);
-	$movies = mysqli_fetch_all($result);
+	$movies = fetch_array($connection, $query);
 	
 	if (!empty($_GET[PARAM_SORT])) {
 		if ($_GET[PARAM_SORT] == "ascending") {
@@ -47,9 +75,7 @@
 		<a class="link_horizontal" href="<?php echo $href_sort_descending; ?>">Sort Z-A</a>
 	</div>
 <?php	
-	include 'templates/movies_list.php';	
-	
-	mysqli_free_result($result);
+	include 'templates/movies_list.php';
 	
 	include 'templates/footer.php';
 ?>
