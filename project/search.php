@@ -10,10 +10,11 @@
 	function fetch_array($connection, $query) {
 		$result = mysqli_query($connection, $query);
 		$row = mysqli_fetch_array($result, MYSQLI_NUM);
+		$rows = array();
 		
 		do {
 			if ($row != NULL) {
-				$rows[] = $row;
+				array_push($rows, $row);
 			}
 			
 			$row = mysqli_fetch_array($result, MYSQLI_NUM);

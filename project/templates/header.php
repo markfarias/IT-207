@@ -12,7 +12,6 @@
 	if(mysqli_connect_errno($connection)) {
 		header('Location: ./error.html');
 	}
-	echo phpinfo();
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
