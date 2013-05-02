@@ -25,7 +25,7 @@
 	echo "\t\t\t", '<div class="list_view">'.PHP_EOL;
 	echo "\t\t\t\t", '<div class="list_element">'.PHP_EOL;
 	echo "\t\t\t\t\t", '<div class="column_125 float_left">'.PHP_EOL;
-	echo "\t\t\t\t\t\t", '<img class="cover_image" src="' . $movie[MOVIES_COVER] . '" alt_text="' . $movie[MOVIES_TITLE] . '" />' .PHP_EOL;
+	echo "\t\t\t\t\t\t", '<img class="cover_image" src="' . $movie[MOVIES_COVER] . '" alt="' . $movie[MOVIES_TITLE] . '" />' .PHP_EOL;
 	echo "\t\t\t\t\t", '</div>'.PHP_EOL;
 	echo "\t\t\t\t\t", '<div class="column_600 float_left">'.PHP_EOL;
 		

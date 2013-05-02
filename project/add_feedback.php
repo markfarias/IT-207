@@ -11,7 +11,7 @@
 			</div>
 			<div style="margin-top: 5px;" class="border_grey center">
 				<div class="float_left" style="width: 150px; text-align:center">
-					<img src="images/review.png" width="100px" height="100px" />
+					<img src="images/review.png" width="100px" height="100px" alt="Feedback Picture" />
 				</div>
 				<div class="float_left" style="width: 550px">
 					<table style="width: 100%">

@@ -17,13 +17,13 @@
 				</p>
 			</div>
 			<div style="margin-top: 5px;" class="border_grey center">
-				<div class="float_left" style="width: 150px; text-align:center">
-					<img src="images/AddAccount.png" width="100px" height="100px" />
+				<div class="float_left" style="width: 200px; text-align:center">
+					<img src="images/AddAccount.png" width="100px" height="100px" alt="Register Picture" />
 				</div>
-				<div class="float_left" style="width: 450px">
+				<div class="float_left" style="width: 400px">
 					<table cellspacing="0" cellpadding="3" width="100%">
 						<tr>
-							<td width="150px"><h2>First Name:</h2></td>
+							<td style="width:120px"><h2>First Name:</h2></td>
 							<td>
 								<input class="column_field" type="text" name="FirstName" />
 							</td>

@@ -23,12 +23,12 @@
 			</div>
 			<div style="margin-top: 5px;" class="border_grey center">
 				<div class="float_left" style="width: 150px; text-align:center">
-					<img src="images/AccountInfo.png" width="100px" height="100px" />
+					<img src="images/AccountInfo.png" width="100px" height="100px" alt="Account Info Picture" />
 				</div>
 				<div class="float_left" style="width: 450px">
 					<table cellspacing="0" cellpadding="3" width="100%">
 						<tr>
-							<td width="150px"><h2>First Name:</h2></td>
+							<td style="width=150px"><h2>First Name:</h2></td>
 							<td>
 								<input class="column_field" type="text" name="FirstName" value="<?php echo $user[1]; ?>" />
 							</td>

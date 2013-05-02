@@ -32,18 +32,18 @@
 			</div>
 			<div style="margin-top: 5px;" class="border_grey center">
 				<div class="float_left" style="width: 150px; text-align:center">
-					<img src="images/login.png" width="100px" height="100px" />
+					<img src="images/login.png" width="100px" height="100px" alt="Login Picture" />
 				</div>
 				<div class="float_left" style="width: 350px">
 					<table cellspacing="0" cellpadding="3" width="100%">
 						<tr>
-							<td align="right" width="25%">Username:</td>
+							<td align="right" style="width=25%"><h2>Username:</h2></td>
 							<td>
 								<input class="column_field" type="text" maxlength="32" name="username" />
 							</td>
 						</tr>
 						<tr>
-							<td align="right">Password:</td>
+							<td align="right"><h2>Password:</h2></td>
 							<td>
 								<input class="column_field" type="password" maxlength="20" name="password" />
 							</td>

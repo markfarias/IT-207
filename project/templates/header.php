@@ -85,9 +85,9 @@
 						</div>
 						<div>
 							<form method="get" action="search.php">
-								<span>Movie Search:</span>&nbsp;
+								<p>Movie Search:&nbsp;
 								<input type="text" name="search" <?php if (!empty($_GET[PARAM_SEARCH])) { echo 'value="'.$_GET[PARAM_SEARCH].'"'; } ?>/>
-								<input class="button" type="submit" value="Search" />
+								<input class="button" type="submit" value="Search" /></p>
 							</form>
 						</div>
 					</div>

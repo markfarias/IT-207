@@ -109,6 +109,7 @@
 						</tr>
 						<tr>
 							<td><h2>Shipping Rate:</h2></td><td>$<input type="text" name="Shipping" maxlength="5" size="7" /></td>
+						</tr>
 						<tr>
 							<td valign="top"><h2>Cover Image:</h2></td>
 							<td>
