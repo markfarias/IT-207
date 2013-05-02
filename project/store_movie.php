@@ -77,7 +77,7 @@
 	<div id="dialog_message_box" class="center">
 		<div id="dialog_message">
 			<div class="float_left">
-				<img src="images/success.png" height="100px" width="100px" />
+				<img src="images/Success.png" height="100px" width="100px" />
 			</div>
 			<div class="float_left" style="width: 350px; margin-left: 10px">
 				<p class="feedback">Your new movie has been added!</p>

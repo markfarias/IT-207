@@ -325,6 +325,11 @@ p {
 	padding: 25px;
 }
 
+#footer {
+	width: 100%;
+	text-align: center;
+}
+
 #header_outer {
 	width: 100%;
 	text-align: right;

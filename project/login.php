@@ -32,7 +32,7 @@
 			</div>
 			<div style="margin-top: 5px;" class="border_grey center">
 				<div class="float_left" style="width: 150px; text-align:center">
-					<img src="images/login.png" width="100px" height="100px" alt="Login Picture" />
+					<img src="images/Login.png" width="100px" height="100px" alt="Login Picture" />
 				</div>
 				<div class="float_left" style="width: 350px">
 					<table cellspacing="0" cellpadding="3" width="100%">

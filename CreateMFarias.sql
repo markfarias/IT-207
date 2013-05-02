@@ -141,3 +141,8 @@ VALUES
 (3, 'PG-13'),
 (4, 'R'),
 (5, 'NR');
+
+-- -----------------------------------------------------
+-- Load up the base Admin user record
+-- -----------------------------------------------------
+INSERT Users VALUES('admin','Admin','Admin','admin@masonlive.gmu.edu',1,'admin');
