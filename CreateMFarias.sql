@@ -1,3 +1,10 @@
+-- -----------------------------------------------------
+-- This script executes a scratch build of the objects in
+-- MFARIAS database for 'The Movie Room' web application
+-- database objects.
+-- -----------------------------------------------------
+
+
 USE mfarias ;
 
 -- -----------------------------------------------------
@@ -46,9 +53,9 @@ CREATE  TABLE IF NOT EXISTS mfarias.Movies (
   ReleaseYear CHAR(4) NOT NULL ,
   Description TEXT NOT NULL ,
   Rating TINYINT NOT NULL ,
-  Price DECIMAL NOT NULL ,
-  ShippingRate DECIMAL NOT NULL ,
-  CoverImage BLOB NULL,
+  Price FLOAT(4,2) NOT NULL ,
+  ShippingRate FLOAT(4,2) NOT NULL ,
+  CoverImage VARCHAR(255) NOT NULL,
   INDEX FK_MoviesMovieRatings_idx (Rating ASC) ,
   INDEX FK_MoviesReleaseCompanies_idx (ReleaseCompany ASC) ,
   CONSTRAINT FK_MoviesMovieRatings
@@ -113,7 +120,7 @@ VALUES
 (1, 'Action'),
 (2, 'Adventure'),
 (3, 'Comedy'),
-(4, 'Documentary'),
+(4, 'Drama'),
 (5, 'Romance'),
 (6, 'Sci-Fi'),
 (7, 'Horror');
@@ -129,7 +136,12 @@ VALUES
 (4, 'Pixar'),
 (5, 'Universal'),
 (6, 'Touchstone'),
-(7, 'Warner Bros.');
+(7, 'Warner Bros.'),
+(8, 'Paramount'),
+(9, 'Sony Pictures'),
+(10, 'MGM'),
+(11. 'Lionsgate'),
+(12, 'Columbia Pictures');
 
 -- -----------------------------------------------------
 -- Load up the Movies Ratings

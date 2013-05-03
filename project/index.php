@@ -1,3 +1,13 @@
+<!--Mark Farias
+	Richard Kim
+	IT 207
+	Project
+	Description: The main/default page of application:
+					-Displays all of the movies in the inventory.
+					-Shows and supports filtering by category.
+					-Provides search functionality.
+-->
+
 <?php
 	include 'templates/header.php';
 	

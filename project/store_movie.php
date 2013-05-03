@@ -1,3 +1,10 @@
+<!--Mark Farias
+	Richard Kim
+	IT 207
+	Project
+	Description: Application logic that handles saving the added movie to the database. Checks for invalid entry.
+-->
+
 <?php
 	// Load the header
 	include 'templates/header.php';

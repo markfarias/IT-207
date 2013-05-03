@@ -1,3 +1,10 @@
+<!--Mark Farias
+	Richard Kim
+	IT 207
+	Project
+	Description: Provides the interface to the user to add feedback or review for a selected movie.
+-->
+
 <?php
 	include 'templates/header.php';
 ?>

@@ -1,3 +1,11 @@
+<!--Mark Farias
+	Richard Kim
+	IT 207
+	Project
+	Description: 	Creates the display list of movies in the inventory.
+					Supports sorting and paging.
+-->
+
 <?php
 	define("MAX_ITEMS", 5);
 	define("PARAM_LOWER_BOUND", "lowerBound");
@@ -98,7 +106,7 @@
 				
 				// Description
 				echo "\t\t\t\t\t\t", '<p>'.PHP_EOL;
-				echo "\t\t\t\t\t\t\t", "Description: ", $movie[MOVIES_DESC].PHP_EOL;
+				echo "\t\t\t\t\t\t\t", "<b>Description:</b> ", $movie[MOVIES_DESC].PHP_EOL;
 				echo "\t\t\t\t\t\t", '</p>'.PHP_EOL;
 				echo "\t\t\t\t\t", '</div>'.PHP_EOL;
 				echo "\t\t\t\t\t", '<div class="clear_floats"></div>'.PHP_EOL;

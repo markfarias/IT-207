@@ -1,3 +1,10 @@
+<!--Mark Farias
+	Richard Kim
+	IT 207
+	Project
+	Description: Provides an interface to the user to create a new account in the application.
+-->
+
 <?php
 	include 'templates/header.php';
 ?>

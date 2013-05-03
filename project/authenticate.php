@@ -1,3 +1,10 @@
+<!--Mark Farias
+	Richard Kim
+	IT 207
+	Project
+	Description: Application logic that handles registration, login, and account update functionality.
+-->
+
 <?php
 	include 'templates/header.php';
 	

@@ -1,3 +1,10 @@
+<!--Mark Farias
+	Richard Kim
+	IT 207
+	Project
+	Description: Application logic that handles a search request by the user.
+-->
+
 <?php
 	include 'templates/header.php';
 	

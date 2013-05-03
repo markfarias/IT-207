@@ -1,3 +1,10 @@
+<!--Mark Farias
+	Richard Kim
+	IT 207
+	Project
+	Description: Displays the details of a selected movie to the user.
+-->
+
 <?php
 	include 'templates/header.php';
 	
@@ -40,7 +47,7 @@
 	
 	// Description
 	echo "\t\t\t\t\t\t", '<p>'.PHP_EOL;
-	echo "\t\t\t\t\t\t\t", "Description: ", $movie[MOVIES_DESC].PHP_EOL;
+	echo "\t\t\t\t\t\t\t", "<b>Description:</b> ", $movie[MOVIES_DESC].PHP_EOL;
 	echo "\t\t\t\t\t\t", '</p>'.PHP_EOL;
 	
 	if (!empty($_SESSION[SESSION_USER])) {

@@ -1,3 +1,10 @@
+<!--Mark Farias
+	Richard Kim
+	IT 207
+	Project
+	Description: Provides the interface to a registered user to alter their account information.
+-->
+
 <?php
 	include 'templates/header.php';
 	

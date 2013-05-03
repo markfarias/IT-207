@@ -1,3 +1,10 @@
+<!--Mark Farias
+	Richard Kim
+	IT 207
+	Project
+	Description:	Provides an interface for the Administrator to add new movies to the inventory.
+-->
+
 <?php
 	include 'templates/header.php';
 	

@@ -3,7 +3,8 @@
 	Richard Kim
 	IT 207
 	Project
-	Description: 
+	Description: 	Builds up the header portion of the web application and is used as an include file.
+					Establishes the database connection.
 -->
 <?php
 	session_start();
