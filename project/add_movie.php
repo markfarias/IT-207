@@ -45,8 +45,10 @@
 	</div>
 	<form enctype="multipart/form-data" method="post" action="store_movie.php">
 		<?php
-			if(!empty($_GET['user'])) {
-				echo '<input type="hidden" value="' . $_GET['user'] . '" />';
+			if (!empty($_GET[USER]) && !empty($_GET[USERS_NAME]) && !empty($_GET[USER_ADMIN])) {
+				echo '<input type="hidden" name="user" value="'.$_GET[USER].'" />'.PHP_EOL;
+				echo '<input type="hidden" name="usersName" value="'.$_GET[USERS_NAME].'" />'.PHP_EOL;
+				echo '<input type="hidden" name="admin" value="'.$_GET[USER_ADMIN].'" />'.PHP_EOL;
 			}
 		?>
 		<div id="dialog_entry" class="center" style="width: 700px">

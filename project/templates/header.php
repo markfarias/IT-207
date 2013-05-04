@@ -39,7 +39,7 @@
 					define("PARAM_SEARCH", "search");
 					define("PARAM_SORT", "sort");
 					
-					// Session variables
+					// User account variables
 					define("USER", "user");
 					define("USERS_NAME", "usersName");
 					define("USER_ADMIN", "admin");
@@ -63,9 +63,15 @@
 					define("REVIEWS_SCORE", 3);
 					define("REVIEWS_COMMENTS", 4);
 					
+					// To account for the need of a POST for a file upload, stuff the GET with the user's info from POST
+					if(!empty($_POST[USER])) {
+						$_GET[USER] = $_POST[USER];
+						$_GET[USERS_NAME] = $_POST[USERS_NAME];
+						$_GET[USER_ADMIN] = $_POST[USER_ADMIN];
+					}
+					
 					$links = "";
-					//if (empty($_SESSION[SESSION_USER])) {
-					if (empty($_GET[USER])) {
+					if (empty($_GET[USER]) && empty($_POST[USER])) {
 						$links .= '<p><a class="header_link" href="login.php">Log-In</a>&nbsp;|';
 						$links .= '<a class="header_link" href="register.php">Register</a></p>';
 					}

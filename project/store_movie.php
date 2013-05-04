@@ -37,7 +37,7 @@
 		!is_uploaded_file($_FILES[PARAM_COVER]['tmp_name'])) {
 		
 		// Redirect the user back
-		header('Location: add_movie.php?Error=1');
+		header('Location: add_movie.php?'.sprintf(LOGIN_PARAMS, $_POST[USER], $_POST[USERS_NAME], $_POST[USER_ADMIN]).'&Error=1');
 	}
 	else {
 		// Check for an acceptable file type
@@ -47,15 +47,15 @@
 			($_FILES[PARAM_COVER]["type"] != "image/gif"))) {
 			
 			// Redirect the user back
-			header('Location: add_movie.php?Error=2');
+			header('Location: add_movie.php?'.sprintf(LOGIN_PARAMS, $_POST[USER], $_POST[USERS_NAME], $_POST[USER_ADMIN]).'&Error=2');
 		}
 		elseif($_FILES[PARAM_COVER]["size"] > 75000) {
 			// Redirect the user back
-			header('Location: add_movie.php?Error=3');
+			header('Location: add_movie.php?'.sprintf(LOGIN_PARAMS, $_POST[USER], $_POST[USERS_NAME], $_POST[USER_ADMIN]).'&Error=3');
 		}
 		elseif(file_exists("images/covers/" . $_FILES[PARAM_COVER]["name"])) {
 			// Redirect the user back
-			header('Location: add_movie.php?Error=4');
+			header('Location: add_movie.php?'.sprintf(LOGIN_PARAMS, $_POST[USER], $_POST[USERS_NAME], $_POST[USER_ADMIN]).'&Error=4');
 		}
 		else {
 			// The file is good, proceed to upload and save
@@ -88,7 +88,11 @@
 			</div>
 			<div class="float_left" style="width: 350px; margin-left: 10px">
 				<p class="feedback">Your new movie has been added!</p>
-				<p><a href="add_movie.php">Add Another Movie...</a></p>
+				<p>
+					<?php
+						echo '<a href="add_movie.php?'.sprintf(LOGIN_PARAMS, $_POST[USER], $_POST[USERS_NAME], $_POST[USER_ADMIN]).'">Add another Movie...</a>';
+					?>
+				</p>
 			</div>
 			<div class="clear_floats"></div>
 		</div>
