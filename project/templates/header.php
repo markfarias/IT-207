@@ -31,7 +31,7 @@
 					define("HREF_FORMAT", '%s'.ASCII_QUESTION.'%s');
 					define("HREF_GET_PARAM", '%s'.ASCII_EQUAL.'%s');
 					
-					define("LOGIN_PARAMS", 'user=%s&usersName=%s&admin=%d');
+					define("LOGIN_PARAMS", 'user=%s&usersName=%s&admin=%s');
 					
 					// Common parameters
 					define("PARAM_GENRE", "genre");
@@ -158,7 +158,7 @@
 						mysqli_free_result($categories);
 						
 						// Include an Add Movie selection if its the Admin
-						if(!empty($_GET[USER]) && ($_GET[USER_ADMIN] == 1)) {
+						if(!empty($_GET[USER]) && ($_GET[USER_ADMIN] == "yes")) {
 							echo '<li><a href="add_movie.php?'.sprintf(LOGIN_PARAMS, $_GET[USER], $_GET[USERS_NAME], $_GET[USER_ADMIN]).'">Add Movie</a></li>'.PHP_EOL;
 						}
 					?>
