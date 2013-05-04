@@ -5,11 +5,7 @@
 	Description: Logs the user out of the application and clears the session.
 -->
 
-<?php
-	session_start();
-	session_unset();
-    session_destroy();
-	
+<?php	
 	include 'templates/header.php';
 	
 	header('Location: index.php');

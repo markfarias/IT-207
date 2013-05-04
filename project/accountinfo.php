@@ -8,7 +8,7 @@
 <?php
 	include 'templates/header.php';
 	
-	$query = 'SELECT * FROM Users WHERE UserName="'.$_SESSION[SESSION_USER].'"';
+	$query = 'SELECT * FROM Users WHERE UserName="'.$_GET[USER].'"';
 	
 	$results = mysqli_query($connection, $query);
 	$user = mysqli_fetch_row($results);

@@ -8,7 +8,7 @@
 <?php
 	include 'templates/header.php';
 	
-	define("PARAM_USERNAME", "username");
+	define("PARAM_USERNAME", "UserName");
 	define("PARAM_PASSWORD", "password");
 	define("PARAM_EMAIL", "email");
 	define("PARAM_FIRSTNAME", "FirstName");
@@ -21,11 +21,12 @@
 	$selectquery = "SELECT * FROM Users WHERE UserName='%s' AND Password='%s'";
 	$updatequery = "UPDATE Users SET %s='%s' WHERE UserName='%s'";
 		
-	if (!empty($_POST[PARAM_REGISTRATION])) {
+	if (!empty($_GET[PARAM_REGISTRATION])) {
 		
-		if (!empty($_POST[PARAM_EMAIL]) && !empty($_POST[PARAM_FIRSTNAME]) && !empty($_POST[PARAM_LASTNAME]) && 
-			!empty($_POST[PARAM_PASSWORD]) && !empty($_POST[PARAM_USERNAME])) {
-			mysqli_query($connection, sprintf($insertquery, $_POST[PARAM_USERNAME], $_POST[PARAM_FIRSTNAME], $_POST[PARAM_LASTNAME], $_POST[PARAM_EMAIL], $_POST[PARAM_PASSWORD]));
+		if (!empty($_GET[PARAM_EMAIL]) && !empty($_GET[PARAM_FIRSTNAME]) && !empty($_GET[PARAM_LASTNAME]) && 
+			!empty($_GET[PARAM_PASSWORD]) && !empty($_GET[PARAM_USERNAME])) {
+			mysqli_query($connection, sprintf($insertquery, $_GET[PARAM_USERNAME], $_GET[PARAM_FIRSTNAME], $_GET[PARAM_LASTNAME], $_GET[PARAM_EMAIL], $_GET[PARAM_PASSWORD]));
+			
 			// Redirect to the Login page
 			header('Location: login.php?LoginMsg=3');
 		}
@@ -34,29 +35,28 @@
 			header('Location: register.php?RegisterMsg=1');
 		}
 	}
-	else if (!empty($_POST[PARAM_UPDATE_INFO])) {
-		mysqli_query($connection, sprintf($updatequery, "FirstName", $_POST[PARAM_FIRSTNAME], $_SESSION[SESSION_USER]));
-		mysqli_query($connection, sprintf($updatequery, "LastName", $_POST[PARAM_LASTNAME], $_SESSION[SESSION_USER]));
-		mysqli_query($connection, sprintf($updatequery, "EmailAddress", $_POST[PARAM_EMAIL], $_SESSION[SESSION_USER]));
-		mysqli_query($connection, sprintf($updatequery, "Password", $_POST[PARAM_PASSWORD], $_SESSION[SESSION_USER]));
-		$_SESSION[SESSION_USERS_NAME] = $_POST[PARAM_FIRSTNAME] . " " . $_POST[PARAM_LASTNAME];
+	else if (!empty($_GET[PARAM_UPDATE_INFO])) {		
+		mysqli_query($connection, sprintf($updatequery, "FirstName", $_GET[PARAM_FIRSTNAME], $_GET[USER]));
+		mysqli_query($connection, sprintf($updatequery, "LastName", $_GET[PARAM_LASTNAME], $_GET[USER]));
+		mysqli_query($connection, sprintf($updatequery, "EmailAddress", $_GET[PARAM_EMAIL], $_GET[USER]));
+		mysqli_query($connection, sprintf($updatequery, "Password", $_GET[PARAM_PASSWORD], $_GET[USER]));
+		
 		// Redirect back to the Account Info page
-		header('Location: accountinfo.php?Update=1');
+		header('Location: accountinfo.php?'.sprintf(LOGIN_PARAMS, $_GET[USER], $_GET[PARAM_FIRSTNAME], $_GET[USER_ADMIN]).'&Update=1');
 	}
 	else {		
-		if (!empty($_POST[PARAM_PASSWORD]) && !empty($_POST[PARAM_USERNAME])) {
+		if (!empty($_GET[PARAM_PASSWORD]) && !empty($_GET[PARAM_USERNAME])) {
 			// Query the User table for the attempted login
-			$result = mysqli_query($connection, sprintf($selectquery, $_POST[PARAM_USERNAME], $_POST[PARAM_PASSWORD]));
+			$result = mysqli_query($connection, sprintf($selectquery, $_GET[PARAM_USERNAME], $_GET[PARAM_PASSWORD]));
 			if (mysqli_num_rows($result) == 1) {
 				// Populate session values with the User details
-				$_SESSION[SESSION_USER] = $_POST[PARAM_USERNAME];
 				$row = mysqli_fetch_assoc($result);
-				$_SESSION[SESSION_USERS_NAME] = $row[PARAM_FIRSTNAME] . " " . $row[PARAM_LASTNAME];
-				$_SESSION[SESSION_USER_ADMIN] = $row[PARAM_ADMIN];
+				
 				// Free up the results
 				mysqli_free_result($result);
+				
 				// Redirect the authenticated user to the home page
-				header('Location: index.php');
+				header('Location: index.php?'.sprintf(LOGIN_PARAMS, $row[PARAM_USERNAME], $row[PARAM_FIRSTNAME], $row[PARAM_ADMIN]));
 			}
 			else {
 				// Redirect back to the Login page to show an invalid account error

@@ -27,7 +27,7 @@
 			}
 		?>
 	</div>
-	<form method="post" action="authenticate.php">
+	<form method="get" action="authenticate.php">
 		
 		<div id="dialog_entry" class="center" style="width: 500px">
 			<div class="row_solid_background">
@@ -46,7 +46,7 @@
 						<tr>
 							<td align="right" style="width=25%"><h2>Username:</h2></td>
 							<td>
-								<input class="column_field" type="text" maxlength="32" name="username" />
+								<input class="column_field" type="text" maxlength="32" name="UserName" />
 							</td>
 						</tr>
 						<tr>

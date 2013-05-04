@@ -50,8 +50,12 @@
 	echo "\t\t\t\t\t\t\t", "<b>Description:</b> ", $movie[MOVIES_DESC].PHP_EOL;
 	echo "\t\t\t\t\t\t", '</p>'.PHP_EOL;
 	
-	if (!empty($_SESSION[SESSION_USER])) {
-		echo "\t\t\t\t\t\t", '<a class="link_button" href="'.sprintf(HREF_FORMAT, "add_feedback.php", sprintf(HREF_GET_PARAM, "MovieId", $movieId)).'">Add Feedback</a>'.PHP_EOL;
+	if (!empty($_GET[USER])) {
+		echo "\t\t\t\t\t\t", '<a class="link_button" href="'.sprintf(HREF_FORMAT, "add_feedback.php", sprintf(HREF_GET_PARAM, "MovieId", $movieId));
+		if (!empty($_GET[USER]) && !empty($_GET[USERS_NAME]) && !empty($_GET[USER_ADMIN])) {
+			echo ASCII_AND.sprintf(LOGIN_PARAMS, $_GET[USER], $_GET[USERS_NAME], $_GET[USER_ADMIN]);
+		}
+		echo '">Add Feedback</a>'.PHP_EOL;
 	}
 	
 	echo "\t\t\t\t\t", '</div>'.PHP_EOL;

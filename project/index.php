@@ -63,11 +63,16 @@
 	
 	if (!empty($_GET[PARAM_GENRE])) {
 		if ($_GET[PARAM_GENRE] > 0) {
-			$href_sort_ascending = $href_sort_ascending.ASCII_AND.sprintf(HREF_GET_PARAM, PARAM_GENRE, $_GET[PARAM_GENRE]);
-			$href_sort_descending = $href_sort_descending.ASCII_AND.sprintf(HREF_GET_PARAM, PARAM_GENRE, $_GET[PARAM_GENRE]);
+			$href_sort_ascending .= ASCII_AND.sprintf(HREF_GET_PARAM, PARAM_GENRE, $_GET[PARAM_GENRE]);
+			$href_sort_descending .= ASCII_AND.sprintf(HREF_GET_PARAM, PARAM_GENRE, $_GET[PARAM_GENRE]);
 			
 			$query = $query." WHERE MovieCategory=".$_GET[PARAM_GENRE];
 		}
+	}
+	
+	if (!empty($_GET[USER]) && !empty($_GET[USERS_NAME]) && !empty($_GET[USER_ADMIN])) {
+		$href_sort_ascending .= ASCII_AND.sprintf(LOGIN_PARAMS, $_GET[USER], $_GET[USERS_NAME], $_GET[USER_ADMIN]);
+		$href_sort_descending .= ASCII_AND.sprintf(LOGIN_PARAMS, $_GET[USER], $_GET[USERS_NAME], $_GET[USER_ADMIN]);
 	}
 	
 	$movies = fetch_array($connection, $query);

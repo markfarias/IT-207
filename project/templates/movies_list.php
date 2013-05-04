@@ -52,9 +52,14 @@
 	
 	if (!empty($_GET[PARAM_GENRE])) {
 		if ($_GET[PARAM_GENRE] > 0) {
-			$href_next = $href_next.sprintf(HREF_GET_PARAM, PARAM_GENRE, $_GET[PARAM_GENRE]);
-			$href_prev = $href_prev.sprintf(HREF_GET_PARAM, PARAM_GENRE, $_GET[PARAM_GENRE]);
+			$href_next = $href_next.ASCII_AND.sprintf(HREF_GET_PARAM, PARAM_GENRE, $_GET[PARAM_GENRE]);
+			$href_prev = $href_prev.ASCII_AND.sprintf(HREF_GET_PARAM, PARAM_GENRE, $_GET[PARAM_GENRE]);
 		}
+	}
+	
+	if (!empty($_GET[USER]) && !empty($_GET[USERS_NAME]) && !empty($_GET[USER_ADMIN])) {
+		$href_next = $href_next.ASCII_AND.sprintf(LOGIN_PARAMS, $_GET[USER], $_GET[USERS_NAME], $_GET[USER_ADMIN]);
+		$href_prev = $href_prev.ASCII_AND.sprintf(LOGIN_PARAMS, $_GET[USER], $_GET[USERS_NAME], $_GET[USER_ADMIN]);
 	}
 ?>
 	<div class="text_center">
@@ -100,7 +105,11 @@
 				echo "\t\t\t\t\t", '<div class="column_700 float_left">'.PHP_EOL;
 				
 				// Movie Info
-				echo "\t\t\t\t\t\t", '<a href="', sprintf(HREF_FORMAT, "view_movie.php", "MovieId=".$movie[MOVIES_ID]), '"><span class="movie_title">', $movie[MOVIES_TITLE], '</span></a><br />'.PHP_EOL;		
+				echo "\t\t\t\t\t\t", '<a href="', sprintf(HREF_FORMAT, "view_movie.php", "MovieId=".$movie[MOVIES_ID]);
+				if (!empty($_GET[USER]) && !empty($_GET[USERS_NAME]) && !empty($_GET[USER_ADMIN])) {
+					echo ASCII_AND.sprintf(LOGIN_PARAMS, $_GET[USER], $_GET[USERS_NAME], $_GET[USER_ADMIN]);
+				}
+				echo '"><span class="movie_title">', $movie[MOVIES_TITLE], '</span></a><br />'.PHP_EOL;		
 				echo "\t\t\t\t\t\t", "Genre: ".$category[CATEGORIES_NAME]."<br />".PHP_EOL;
 				echo "\t\t\t\t\t\t", "Rating: ".$movieRating[MOVIERATINGS_NAME]."<br />".PHP_EOL;
 				

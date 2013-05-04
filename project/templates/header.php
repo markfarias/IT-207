@@ -7,7 +7,6 @@
 					Establishes the database connection.
 -->
 <?php
-	session_start();
 	$connection = @mysqli_connect("helios.ite.gmu.edu", "mfarias", "GoldRush?49", "mfarias");
 	
 	if(mysqli_connect_errno($connection)) {
@@ -32,6 +31,8 @@
 					define("HREF_FORMAT", '%s'.ASCII_QUESTION.'%s');
 					define("HREF_GET_PARAM", '%s'.ASCII_EQUAL.'%s');
 					
+					define("LOGIN_PARAMS", 'user=%s&usersName=%s&admin=%d');
+					
 					// Common parameters
 					define("PARAM_GENRE", "genre");
 					define("PARAM_MOVIE_ID", "MovieId");
@@ -39,9 +40,9 @@
 					define("PARAM_SORT", "sort");
 					
 					// Session variables
-					define("SESSION_USER", "user");
-					define("SESSION_USERS_NAME", "usersName");
-					define("SESSION_USER_ADMIN", "admin");
+					define("USER", "user");
+					define("USERS_NAME", "usersName");
+					define("USER_ADMIN", "admin");
 					
 					// Database field constants
 					define("CATEGORIES_ID", 0);
@@ -63,14 +64,15 @@
 					define("REVIEWS_COMMENTS", 4);
 					
 					$links = "";
-					if (empty($_SESSION[SESSION_USER])) {
+					//if (empty($_SESSION[SESSION_USER])) {
+					if (empty($_GET[USER])) {
 						$links .= '<p><a class="header_link" href="login.php">Log-In</a>&nbsp;|';
 						$links .= '<a class="header_link" href="register.php">Register</a></p>';
 					}
 					else {
-						$links .= '<p><span class="username">Welcome, '.$_SESSION[SESSION_USERS_NAME]. '</span>&nbsp;|';
+						$links .= '<p><span class="username">Welcome, '.$_GET[USERS_NAME]. '</span>&nbsp;|';
 						$links .= '<a class="header_link" href="logout.php">Log-Out</a>&nbsp;|';
-						$links .= '<a class="header_link" href="accountinfo.php">Account</a></p>';
+						$links .= '<a class="header_link" href="accountinfo.php?'.sprintf(LOGIN_PARAMS, $_GET[USER], $_GET[USERS_NAME], $_GET[USER_ADMIN]).'">Account</a></p>';
 					}
 				?>
 				<div>
@@ -86,8 +88,16 @@
 						<div>
 							<form method="get" action="search.php">
 								<p>Movie Search:&nbsp;
-								<input type="text" name="search" <?php if (!empty($_GET[PARAM_SEARCH])) { echo 'value="'.$_GET[PARAM_SEARCH].'"'; } ?>/>
-								<input class="button" type="submit" value="Search" /></p>
+									<input type="text" name="search" <?php if (!empty($_GET[PARAM_SEARCH])) { echo 'value="'.$_GET[PARAM_SEARCH].'"'; } ?>/>
+									<input class="button" type="submit" value="Search" />
+									<?php
+										if (!empty($_GET[USER]) && !empty($_GET[USERS_NAME]) && !empty($_GET[USER_ADMIN])) {
+											echo '<input type="hidden" name="user" value="'.$_GET[USER].'" />'.PHP_EOL;
+											echo '<input type="hidden" name="usersName" value="'.$_GET[USERS_NAME].'" />'.PHP_EOL;
+											echo '<input type="hidden" name="admin" value="'.$_GET[USER_ADMIN].'" />'.PHP_EOL;
+										}
+									?>
+								</p>
 							</form>
 						</div>
 					</div>
@@ -102,24 +112,43 @@
 					<?php			
 						// Setup the menu
 						// Set the Home and All items
-						echo '<li><a href="index.php">Home</a></li>'.PHP_EOL;
+						echo '<li><a href="index.php';
+						if (!empty($_GET[USER]) && !empty($_GET[USERS_NAME]) && !empty($_GET[USER_ADMIN])) {
+							echo '?'.sprintf(LOGIN_PARAMS, $_GET[USER], $_GET[USERS_NAME], $_GET[USER_ADMIN]);
+						}
+						echo '">Home</a></li>'.PHP_EOL;
+						
 						if(!empty($_GET[PARAM_GENRE]) && ($_GET[PARAM_GENRE] == "a")) {
-							//echo $_GET[PARAM_GENRE];
-							echo '<li class="active"><a href="index.php&#63;genre&#61;a">All</a></li>'.PHP_EOL;
-
+							echo '<li class="active"><a href="index.php&#63;genre&#61;a';
+							if (!empty($_GET[USER]) && !empty($_GET[USERS_NAME]) && !empty($_GET[USER_ADMIN])) {
+								echo '&'.sprintf(LOGIN_PARAMS, $_GET[USER], $_GET[USERS_NAME], $_GET[USER_ADMIN]);
+							}
+							echo '">All</a></li>'.PHP_EOL;
 						}
 						else {
-							echo '<li><a href="index.php&#63;genre&#61;a">All</a></li>'.PHP_EOL;
+							echo '<li><a href="index.php&#63;genre&#61;a';
+							if (!empty($_GET[USER]) && !empty($_GET[USERS_NAME]) && !empty($_GET[USER_ADMIN])) {
+								echo '&'.sprintf(LOGIN_PARAMS, $_GET[USER], $_GET[USERS_NAME], $_GET[USER_ADMIN]);
+							}
+							echo '">All</a></li>'.PHP_EOL;
 						}
 						// Set the category items
 						$menu = "";
 						$categories = mysqli_query($connection, "SELECT * FROM Categories");
 						while($category = mysqli_fetch_row($categories)) {
 							if(!empty($_GET[PARAM_GENRE]) && ($_GET[PARAM_GENRE] == $category[CATEGORIES_ID])) {
-								$menu .= '<li class="active"><a href="index.php&#63;genre&#61;' . $category[CATEGORIES_ID] . '">' . $category[CATEGORIES_NAME] . '</a></li>'.PHP_EOL;
+								$menu .= '<li class="active"><a href="index.php&#63;genre&#61;' . $category[CATEGORIES_ID];
+								if (!empty($_GET[USER]) && !empty($_GET[USERS_NAME]) && !empty($_GET[USER_ADMIN])) {
+									$menu .= '&'.sprintf(LOGIN_PARAMS, $_GET[USER], $_GET[USERS_NAME], $_GET[USER_ADMIN]);
+								}
+								$menu .= '">' . $category[CATEGORIES_NAME] . '</a></li>'.PHP_EOL;
 							}
 							else {
-								$menu .= '<li><a href="index.php&#63;genre&#61;' . $category[CATEGORIES_ID] . '">' . $category[CATEGORIES_NAME] . '</a></li>'.PHP_EOL;
+								$menu .= '<li><a href="index.php&#63;genre&#61;' . $category[CATEGORIES_ID];
+								if (!empty($_GET[USER]) && !empty($_GET[USERS_NAME]) && !empty($_GET[USER_ADMIN])) {
+									$menu .= '&'.sprintf(LOGIN_PARAMS, $_GET[USER], $_GET[USERS_NAME], $_GET[USER_ADMIN]);
+								}								
+								$menu .= '">' . $category[CATEGORIES_NAME] . '</a></li>'.PHP_EOL;
 							}
 						}
 						// Display the menu
@@ -129,8 +158,8 @@
 						mysqli_free_result($categories);
 						
 						// Include an Add Movie selection if its the Admin
-						if(!empty($_SESSION[SESSION_USER]) && ($_SESSION[SESSION_USER_ADMIN] == 1)) {
-							echo '<li><a href="add_movie.php">Add Movie</a></li>'.PHP_EOL;
+						if(!empty($_GET[USER]) && ($_GET[USER_ADMIN] == 1)) {
+							echo '<li><a href="add_movie.php?'.sprintf(LOGIN_PARAMS, $_GET[USER], $_GET[USERS_NAME], $_GET[USER_ADMIN]).'">Add Movie</a></li>'.PHP_EOL;
 						}
 					?>
 				</ul>
