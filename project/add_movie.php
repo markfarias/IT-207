@@ -44,6 +44,11 @@
 		?>
 	</div>
 	<form enctype="multipart/form-data" method="post" action="store_movie.php">
+		<?php
+			if(!empty($_GET['user'])) {
+				echo '<input type="hidden" value="' . $_GET['user'] . '" />';
+			}
+		?>
 		<div id="dialog_entry" class="center" style="width: 700px">
 			<div class="row_solid_background">
 				<p class="font_label view">
