@@ -55,8 +55,13 @@
 				// Free up the results
 				mysqli_free_result($result);
 				
+				$isAdmin = "no";
+				if ($row[PARAM_ADMIN] == 1) {
+					$isAdmin = "yes";
+				}
+				
 				// Redirect the authenticated user to the home page
-				header('Location: index.php?'.sprintf(LOGIN_PARAMS, $row[PARAM_USERNAME], $row[PARAM_FIRSTNAME], $row[PARAM_ADMIN]));
+				header('Location: index.php?'.sprintf(LOGIN_PARAMS, $row[PARAM_USERNAME], $row[PARAM_FIRSTNAME], $isAdmin));
 			}
 			else {
 				// Redirect back to the Login page to show an invalid account error
