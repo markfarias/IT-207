@@ -35,14 +35,24 @@
 			header('Location: register.php?RegisterMsg=1');
 		}
 	}
-	else if (!empty($_GET[PARAM_UPDATE_INFO])) {		
-		mysqli_query($connection, sprintf($updatequery, "FirstName", $_GET[PARAM_FIRSTNAME], $_GET[USER]));
-		mysqli_query($connection, sprintf($updatequery, "LastName", $_GET[PARAM_LASTNAME], $_GET[USER]));
-		mysqli_query($connection, sprintf($updatequery, "EmailAddress", $_GET[PARAM_EMAIL], $_GET[USER]));
-		mysqli_query($connection, sprintf($updatequery, "Password", $_GET[PARAM_PASSWORD], $_GET[USER]));
+	else if (!empty($_GET[PARAM_UPDATE_INFO])) {
+		if (!empty($_GET[PARAM_FIRSTNAME]) && !empty($_GET[PARAM_LASTNAME]) && !empty($_GET[PARAM_EMAIL]) && !empty($_GET[PARAM_PASSWORD])) {
+			mysqli_query($connection, sprintf($updatequery, "FirstName", $_GET[PARAM_FIRSTNAME], $_GET[USER]));
+			mysqli_query($connection, sprintf($updatequery, "LastName", $_GET[PARAM_LASTNAME], $_GET[USER]));
+			mysqli_query($connection, sprintf($updatequery, "EmailAddress", $_GET[PARAM_EMAIL], $_GET[USER]));
+			mysqli_query($connection, sprintf($updatequery, "Password", $_GET[PARAM_PASSWORD], $_GET[USER]));
+			
+			// Redirect back to the Account Info page
+			header('Location: accountinfo.php?'.sprintf(LOGIN_PARAMS, $_GET[USER], $_GET[PARAM_FIRSTNAME], $_GET[USER_ADMIN]).'&Update=1');
+		}
+		else {
+			$href = sprintf(HREF_FORMAT, "accountinfo.php", sprintf(LOGIN_PARAMS, $_GET[USER], $_GET[USERS_NAME], $_GET[USER_ADMIN]));
 		
-		// Redirect back to the Account Info page
-		header('Location: accountinfo.php?'.sprintf(LOGIN_PARAMS, $_GET[USER], $_GET[PARAM_FIRSTNAME], $_GET[USER_ADMIN]).'&Update=1');
+			// Set the message to the user
+			$outputMessage = '<p>You must enter fields. Please go back and re-enter all information.</p>';
+			$outputMessage .= '<p><a href="'.$href.'">Go Back</a></p>';
+			echo $outputMessage;
+		}
 	}
 	else {		
 		if (!empty($_GET[PARAM_PASSWORD]) && !empty($_GET[PARAM_USERNAME])) {
