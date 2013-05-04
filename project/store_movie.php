@@ -24,6 +24,8 @@
 	$insertmoviequery = "INSERT INTO Movies(MovieName, MovieCategory, ReleaseCompany, ReleaseYear, Description, Rating, Price, ShippingRate, CoverImage) ";
 	$insertmoviequery .= "VALUES ('%s', %u, %u, '%s', '%s', %u, %.2f, %.2f, '%s')";
 	
+	$parameters = sprintf(LOGIN_PARAMS, $_POST[USER], $_POST[USERS_NAME], $_POST[USER_ADMIN]);
+	
 	// If we have values, insert the new movie
 	if(empty($_POST[PARAM_MOVIENAME]) ||
 		empty($_POST[PARAM_DESCRIPTION]) ||
@@ -70,7 +72,7 @@
 			$result = mysqli_query($connection, $finalquery);
 			// Check for errors or no results
 			if(!$result || (mysqli_affected_rows($connection) == 0) || (mysqli_errno($connection) <> 0)) {
-				header('Location: error.html');
+				header('Location: error.php?'.$parameters);
 			}
 			else {
 				// Inserting to the database worked, so store the cover image to the file system

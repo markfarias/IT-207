@@ -7,10 +7,11 @@
 					Establishes the database connection.
 -->
 <?php
-	$connection = @mysqli_connect("helios.ite.gmu.edu", "mfarias", "GoldRush?49", "mfarias");
+	//$connection = @mysqli_connect("helios.ite.gmu.edu", "mfarias", "GoldRush?49", "mfarias");
+	$connection = @mysqli_connect("localhost", "mfarias", "GoldRush?49", "mfarias", "3306");
 	
 	if(mysqli_connect_errno($connection)) {
-		header('Location: ./error.html');
+		header('Location: ./error.php');
 	}
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">

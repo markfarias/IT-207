@@ -31,7 +31,7 @@
 		
 		// Check for errors or no results
 		if(!$result || (mysqli_affected_rows($connection) == 0) || (mysqli_errno($connection) <> 0)) {
-			header('Location: error.html?'.$parameters);
+			header('Location: error.php?'.$parameters);
 		}
 		else {
 			header('Location: view_movie.php?MovieId='.$_GET[PARAM_MOVIE_ID].'&'.$parameters);
