@@ -12,25 +12,29 @@
 	define("PARAM_FEEDBACK", "feedback");
 	define("FORMAT_DATE", '%d-%d-%d');
 	
-	// If we have values, insert the new movie
-	if(empty($_POST[PARAM_MOVIE_ID]) ||
-	   empty($_POST[PARAM_RATING]) ||
-	   empty($_POST[PARAM_FEEDBACK])) {		
+	$parameters = sprintf(LOGIN_PARAMS, $_GET[USER], $_GET[USERS_NAME], $_GET[USER_ADMIN]);
+	 
+	if(empty($_GET[PARAM_MOVIE_ID]) ||
+	   empty($_GET[PARAM_RATING]) ||
+	   empty($_GET[PARAM_FEEDBACK])) {		
+		$href = sprintf(HREF_FORMAT, "add_feedback.php", 'MovieId'.ASCII_EQUAL.$_GET[PARAM_MOVIE_ID].ASCII_AND.$parameters);
+		
 		// Set the message to the user
-		$outputMessage .= '<p>You must enter fields. Please go back and re-enter all information.</p>';
-		$outputMessage .= '<p><a href="add_movie.php">Go Back</a></p>';
+		$outputMessage = '<p>You must enter fields. Please go back and re-enter all information.</p>';
+		$outputMessage .= '<p><a href="'.$href.'">Go Back</a></p>';
+		echo $outputMessage;
 	}
 	else {
 		$currDate = getDate();
 		$query = 'INSERT INTO MovieReviews VALUES (NULL, %d, "'.sprintf(FORMAT_DATE, $currDate["year"], $currDate["mon"], $currDate["mday"]).'", %d, "%s")';
-		$result = mysqli_query($connection, sprintf($query, $_POST[PARAM_MOVIE_ID], $_POST[PARAM_RATING], $_POST[PARAM_FEEDBACK]));
+		$result = mysqli_query($connection, sprintf($query, $_GET[PARAM_MOVIE_ID], $_GET[PARAM_RATING], $_POST[PARAM_FEEDBACK]));
 		
 		// Check for errors or no results
 		if(!$result || (mysqli_affected_rows($connection) == 0) || (mysqli_errno($connection) <> 0)) {
-			header('Location: error.html');
+			header('Location: error.html?'.$parameters);
 		}
 		else {
-			header('Location: view_movie.php?MovieId='.$_POST[PARAM_MOVIE_ID]);
+			header('Location: view_movie.php?MovieId='.$_GET[PARAM_MOVIE_ID].'&'.$parameters);
 		}
 	}
 	

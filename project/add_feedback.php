@@ -8,7 +8,7 @@
 <?php
 	include 'templates/header.php';
 ?>
-	<form method="post" action="store_feedback.php">
+	<form method="get" action="store_feedback.php">
 		<div id="dialog_entry" class="center" style="width: 700px">
 			<div class="row_solid_background">
 				<p class="font_label view">
@@ -53,6 +53,13 @@
 				</div>
 				<div class="clear_floats"></div>
 				<input type="hidden" name="MovieId" value="<?php echo $_GET[PARAM_MOVIE_ID]; ?>" />
+				<?php
+					if (!empty($_GET[USER]) && !empty($_GET[USERS_NAME]) && !empty($_GET[USER_ADMIN])) {
+						echo '<input type="hidden" name="user" value="'.$_GET[USER].'" />'.PHP_EOL;
+						echo '<input type="hidden" name="usersName" value="'.$_GET[USERS_NAME].'" />'.PHP_EOL;
+						echo '<input type="hidden" name="admin" value="'.$_GET[USER_ADMIN].'" />'.PHP_EOL;
+					}
+				?>
 			</div>
 		</div>
 	</form>
